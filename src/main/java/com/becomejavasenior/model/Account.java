@@ -1,0 +1,61 @@
+package com.becomejavasenior.model;
+
+/**
+ * Created by Roman on 14.01.2016.
+ */
+public class Account {
+    private int id;
+    private String accountType;
+    private int idCurrency;
+    private double balance;
+    private int usersId;
+
+    public Account(){
+
+    }
+    public Account(int id, String accountType, int idCurrency, double balance, int usersId) {
+        this.id = id;
+        this.accountType = accountType;
+        this.idCurrency = idCurrency;
+        this.balance = balance;
+        this.usersId = usersId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public int getId_currency() {
+        return idCurrency;
+    }
+
+    public void setId_currency(int id_currency) {
+        this.idCurrency = id_currency;
+    }
+
+    public double getBalance() {return balance;}
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public int getUsers_id() {
+        return usersId;
+    }
+
+    public void setUsers_id(int users_id) {
+        this.usersId = users_id;
+    }
+}
