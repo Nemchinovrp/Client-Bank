@@ -1,6 +1,7 @@
 package com.becomejavasenior.dao.impl;
 
 import com.becomejavasenior.dao.AccountDAO;
+import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.model.Account;
 
 import java.sql.*;
@@ -18,8 +19,8 @@ public class AccountDAOImpl implements AccountDAO {
     private static final String QUERY_DELETE = "DELETE FROM Account WHERE id = ?";
     Connection connection;
 
-    public AccountDAOImpl(Connection connection) {
-        this.connection = connection;
+    public AccountDAOImpl() {
+        connection = ConnectionProvider.getConnection();
     }
 
     @Override

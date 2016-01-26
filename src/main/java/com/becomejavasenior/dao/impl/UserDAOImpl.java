@@ -1,5 +1,6 @@
 package com.becomejavasenior.dao.impl;
 
+import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.dao.UserDAO;
 import com.becomejavasenior.model.User;
 
@@ -18,8 +19,8 @@ public class UserDAOImpl implements UserDAO {
     private static final String QUERY_DELETE = "DELETE FROM User WHERE id = ?";
     Connection connection;
 
-    public UserDAOImpl(Connection connection) {
-        this.connection = connection;
+    public UserDAOImpl() {
+        connection = ConnectionProvider.getConnection();
     }
 
     @Override

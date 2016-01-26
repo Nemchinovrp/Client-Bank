@@ -1,5 +1,6 @@
 package com.becomejavasenior.dao.impl;
 
+import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.dao.TransactionDAO;
 import com.becomejavasenior.model.Transaction;
 
@@ -18,8 +19,8 @@ public class TransactionDAOImpl implements TransactionDAO {
     private static final String QUERY_DELETE = "DELETE FROM Transaction WHERE id = ?";
     Connection connection;
 
-    public TransactionDAOImpl(Connection connection) {
-        this.connection = connection;
+    public TransactionDAOImpl() {
+        connection = ConnectionProvider.getConnection();
     }
 
     @Override

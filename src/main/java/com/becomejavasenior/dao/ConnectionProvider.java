@@ -12,7 +12,7 @@ public class ConnectionProvider {
     static final String USER = "host1378713_root";
     static final String PASSWORD = "265f61ab";
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");

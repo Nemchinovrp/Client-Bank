@@ -1,3 +1,5 @@
+<%@ page import="com.becomejavasenior.model.Currency" %>
+<%@ page import="com.becomejavasenior.dao.impl.CurrencyDAOImpl" %>
 <%--
   Created by IntelliJ IDEA.
   User: Roman
@@ -11,6 +13,16 @@
     <title></title>
 </head>
 <body>
+  <%
+    String id = request.getParameter("id");
+    String name =request.getParameter("name");
+    String rate =request.getParameter("rate");
 
+    Currency currency = new Currency(Integer.parseInt(id), name, Double.parseDouble(rate));
+    CurrencyDAOImpl currencyDAO = new CurrencyDAOImpl();
+    currencyDAO.createCurrency(currency);
+    response.sendRedirect("addCurrency");
+
+  %>
 </body>
 </html>

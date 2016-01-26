@@ -1,5 +1,6 @@
 package com.becomejavasenior.dao.impl;
 
+import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.dao.CurrencyDAO;
 import com.becomejavasenior.model.Currency;
 import java.sql.*;
@@ -17,8 +18,8 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     private static final String QUERY_DELETE = "DELETE FROM Currency WHERE id = ?";
     Connection connection;
 
-    public CurrencyDAOImpl(Connection connection) {
-        this.connection = connection;
+    public CurrencyDAOImpl() {
+        connection = ConnectionProvider.getConnection();
     }
 
     @Override
