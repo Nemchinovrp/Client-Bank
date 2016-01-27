@@ -1,20 +1,15 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<web-app version="3.0"
-         xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-    <display-name>Client Bank</display-name>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+    <display-name>Client-Bank</display-name>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
     <servlet>
-        <servlet-name>MyServlet</servlet-name>
+        <servlet-name>CurrencyController</servlet-name>
         <servlet-class>com.becomejavasenior.controllers.CurrencyController</servlet-class>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
-        <url-pattern>/servlet</url-pattern>
+        <servlet-name>CurrencyController</servlet-name>
+        <url-pattern>/CurrencyController.do</url-pattern>
     </servlet-mapping>
 </web-app>

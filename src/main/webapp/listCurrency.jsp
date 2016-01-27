@@ -9,25 +9,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html"; charset="UTF-8">
+    <meta http-equiv="CONTENT-TYPE" content="text/html" ; charset="UTF-8">
     <title>Currency</title>
 </head>
 <body>
-  <div style="width: 1200px; margin-left: auto;margin-right:auto;">
-    <table cellpadding="10">
-      <tr>
+<table>
+    <thead>
+    <tr>
         <th>Id</th>
         <th>Name</th>
         <th>Rate</th>
-      </tr>
-      <c:forEach items="${viewCur}" var="p">
+        <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <c:forEach items="${currencies}" var="currency">
         <tr>
-          <td>${p.id}</td>
-          <td>${p.name}</td>
-          <td>${p.rate}</td>
+            <td><c:out value="${currency.id}"/></td>
+            <td><c:out value="${currency.name}"/></td>
+            <td><c:out value="${currency.rate}"/></td>
+            <td><a href="CurrencyController.do?action=edit&id=<c:out value="${currency.id}"/>">Update</a></td>
+            <td><a href="CurrencyController.do?action=delete&id=<c:out value="${currency.id}"/>">Delete</a></td>
         </tr>
-      </c:forEach>
-    </table>
-  </div>
+    </c:forEach>
+    </tbody>
+</table>
+<p>
+    <a href="CurrencyController.do?action=insert">Add Currency</a>
+</p>
+
 </body>
 </html>

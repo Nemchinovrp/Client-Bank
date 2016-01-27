@@ -18,15 +18,15 @@
     <fieldset>
         <div>
             <%--@declare id="id"--%><label for="id">Id</label>
-            <input type="text" name="id" value="<c:out value="${currency.id}"/>" readonly="readonly" placeholder="ID"/>
+            <input type="text" name="id" value="<c:out value="${currency.id}"/>"  placeholder="ID"/>
         </div>
         <div>
             <%--@declare id="name"--%><label for="name">Name</label>
-            <input type="text" name="name" value="<c:out value="${currency.name}"/>" readonly="readonly" placeholder="NAME"/>
+            <input type="text" name="name" value="<c:out value="${currency.name}"/>"  placeholder="NAME"/>
         </div>
         <div>
             <%--@declare id="rate"--%><label for="rate">Rate</label>
-            <input type="text" name="rate" value="<c:out value="${currency.rate}"/>" readonly="readonly" placeholder="RATE"/>
+            <input type="text" name="rate" value="<c:out value="${currency.rate}"/>"  placeholder="RATE"/>
         </div>
         <div>
             <input type="submit" value="Submit">

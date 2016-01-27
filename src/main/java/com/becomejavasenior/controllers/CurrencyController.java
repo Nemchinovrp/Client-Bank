@@ -6,6 +6,7 @@ import com.becomejavasenior.model.Currency;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 /**
  * Created by Роман on 24.01.2016.
  */
+@WebServlet("/CurrencyController")
 public class CurrencyController extends HttpServlet {
     private CurrencyDAO dao;
     public static final String LIST_CURRENCY = "/listCurrency.jsp";
@@ -73,23 +75,30 @@ public class CurrencyController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Currency currency = new Currency();
+        currency.setId(Integer.parseInt(request.getParameter("id")));
         currency.setName(request.getParameter("name"));
         currency.setRate(Double.parseDouble(request.getParameter("rate")));
-        String id = request.getParameter("id");
-        if(id == null || id.isEmpty()){
-            try {
-                dao.createCurrency(currency);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        else{
-            currency.setId(Integer.parseInt("id"));
-            try {
-                dao.updateCurrency(currency);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+
+  //      String id = request.getParameter("id");
+//        if(id == null || id.isEmpty()){
+//            try {
+//                dao.createCurrency(currency);
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        else{
+//            currency.setId(Integer.parseInt("id"));
+//            try {
+//                dao.updateCurrency(currency);
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+  //      }
+        try {
+            dao.createCurrency(currency);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST_CURRENCY);
         try {
