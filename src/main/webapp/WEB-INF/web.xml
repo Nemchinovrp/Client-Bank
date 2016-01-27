@@ -10,7 +10,7 @@
 
     <servlet>
         <servlet-name>MyServlet</servlet-name>
-        <servlet-class>com.becomejavasenior.controllers.MyServlet</servlet-class>
+        <servlet-class>com.becomejavasenior.controllers.CurrencyController</servlet-class>
     </servlet>
 
     <servlet-mapping>
