@@ -107,19 +107,18 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     }
 
     @Override
-    public boolean deleteCurrency(Currency currency) throws SQLException {
+    public void deleteCurrency(int id) throws SQLException {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_DELETE);
-            ps.setInt(1, currency.getId());
-            return ps.executeUpdate() == 1;
-
+            ps.setInt(1, id);
+            ps.executeUpdate();
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
         finally {
             JDBCUtil.close(ps, connection);
         }
-        return false;
+
     }
 }

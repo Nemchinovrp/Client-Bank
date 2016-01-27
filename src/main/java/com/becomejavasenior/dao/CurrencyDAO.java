@@ -13,5 +13,5 @@ public interface CurrencyDAO {
     List<Currency> getAllCurrency() throws SQLException;
     Currency getCurrencyById(int id) throws SQLException;
     boolean updateCurrency(Currency currency) throws SQLException;
-    boolean deleteCurrency(Currency currency) throws SQLException;
+    void deleteCurrency(int id) throws SQLException;
 }
