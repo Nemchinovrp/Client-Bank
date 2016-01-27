@@ -78,23 +78,6 @@ public class CurrencyController extends HttpServlet {
         currency.setId(Integer.parseInt(request.getParameter("id")));
         currency.setName(request.getParameter("name"));
         currency.setRate(Double.parseDouble(request.getParameter("rate")));
-
-  //      String id = request.getParameter("id");
-//        if(id == null || id.isEmpty()){
-//            try {
-//                dao.createCurrency(currency);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        else{
-//            currency.setId(Integer.parseInt("id"));
-//            try {
-//                dao.updateCurrency(currency);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-  //      }
         try {
             dao.createCurrency(currency);
         } catch (SQLException e) {

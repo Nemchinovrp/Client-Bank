@@ -19,7 +19,8 @@
         <th>Id</th>
         <th>Name</th>
         <th>Rate</th>
-        <th colspan="2">Action</th>
+        <th>Action</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
