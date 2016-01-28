@@ -66,6 +66,7 @@ public class CurrencyController extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
     }

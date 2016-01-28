@@ -132,12 +132,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean deleteUser(User user) throws SQLException {
+    public void deleteUser(int id) throws SQLException {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_DELETE);
-            ps.setInt(1, user.getId());
-            return ps.executeUpdate() == 1;
+            ps.setInt(1, id);
+            ps.executeUpdate();
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -145,6 +145,5 @@ public class UserDAOImpl implements UserDAO {
         finally {
             JDBCUtil.close(ps, connection);
         }
-        return false;
     }
 }

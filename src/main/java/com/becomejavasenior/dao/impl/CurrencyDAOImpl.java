@@ -41,7 +41,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
 
     @Override
     public List<Currency> getAllCurrency() throws SQLException {
-        List<Currency> currencyList = new ArrayList<Currency>();
+        List<Currency> currencies = new ArrayList<Currency>();
         Statement st = null;
         ResultSet rs = null;
         try {
@@ -50,10 +50,10 @@ public class CurrencyDAOImpl implements CurrencyDAO {
             Currency currency = null;
             while (rs.next()) {
                 currency = new Currency();
-                currency.setId(rs.getInt(1));
-                currency.setName(rs.getString(2));
-                currency.setRate(rs.getDouble(3));
-                currencyList.add(currency);
+                currency.setId(rs.getInt("id"));
+                currency.setName(rs.getString("name"));
+                currency.setRate(rs.getDouble("rate"));
+                currencies.add(currency);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -61,7 +61,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
             JDBCUtil.close(rs, st, connection);
         }
 
-        return currencyList;
+        return currencies;
     }
 
     @Override

@@ -23,18 +23,15 @@
         <th>Action</th>
     </tr>
     </thead>
-    <tbody>
-
     <c:forEach items="${currencies}" var="currency">
         <tr>
-            <td><c:out value="${currency.id}"/></td>
-            <td><c:out value="${currency.name}"/></td>
-            <td><c:out value="${currency.rate}"/></td>
+            <td>${currency.id}</td>
+            <td>${currency.name}</td>
+            <td>${currency.rate}</td>
             <td><a href="CurrencyController.do?action=edit&id=<c:out value="${currency.id}"/>">Update</a></td>
             <td><a href="CurrencyController.do?action=delete&id=<c:out value="${currency.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>
-    </tbody>
 </table>
 <p>
     <a href="CurrencyController.do?action=insert">Add Currency</a>
