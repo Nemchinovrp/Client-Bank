@@ -22,35 +22,35 @@
     </div>
     <div>
       <%--@declare id="firstName"--%><label for="firstName">First Name</label>
-      <input type="text" name="name" value="<c:out value="${user.firstName}"/>"  placeholder="NAME"/>
+      <input type="text" name="firstName" value="<c:out value="${user.firstName}"/>"  placeholder="First Name"/>
     </div>
     <div>
       <%--@declare id="lastName"--%><label for="lastName">Last Name</label>
-      <input type="text" name="rate" value="<c:out value="${user.lastName}"/>"  placeholder="RATE"/>
+      <input type="text" name="lastName" value="<c:out value="${user.lastName}"/>"  placeholder="Last Name"/>
     </div>
     <div>
-      <%--@declare id="id"--%><label for="id">Id</label>
-      <input type="text" name="id" value="<c:out value="${user.id}"/>"  placeholder="ID"/>
+      <%--@declare id="email"--%><label for="email">Email</label>
+      <input type="text" name="email" value="<c:out value="${user.email}"/>"  placeholder="Email"/>
     </div>
     <div>
-      <%--@declare id="firstName"--%><label for="firstName">First Name</label>
-      <input type="text" name="name" value="<c:out value="${user.firstName}"/>"  placeholder="NAME"/>
+      <%--@declare id="password"--%><label for="password">Password</label>
+      <input type="text" name="password" value="<c:out value="${user.password}"/>"  placeholder="Password"/>
     </div>
     <div>
-      <%--@declare id="lastName"--%><label for="lastName">Last Name</label>
-      <input type="text" name="rate" value="<c:out value="${user.lastName}"/>"  placeholder="RATE"/>
+      <%--@declare id="dateOfBirth"--%><label for="dateOfBirth">Date of birth</label>
+      <input type="text" name="dateOfBirth" value="<c:out value="${user.dateOfBirth}"/>"  placeholder="Date of birth"/>
     </div>
     <div>
-      <%--@declare id="id"--%><label for="id">Id</label>
-      <input type="text" name="id" value="<c:out value="${user.id}"/>"  placeholder="ID"/>
+      <%--@declare id="registrationOfDate"--%><label for="registrationOfDate">Registration date</label>
+      <input type="text" name="registrationOfDate" value="<c:out value="${user.registrationOfDate}"/>"  placeholder="Registration date"/>
     </div>
     <div>
-      <%--@declare id="firstName"--%><label for="firstName">First Name</label>
-      <input type="text" name="name" value="<c:out value="${user.firstName}"/>"  placeholder="NAME"/>
+      <%--@declare id="gender"--%><label for="gender">Gender</label>
+      <input type="text" name="gender" value="<c:out value="${user.gender}"/>"  placeholder="Gender"/>
     </div>
     <div>
-      <%--@declare id="lastName"--%><label for="lastName">Last Name</label>
-      <input type="text" name="rate" value="<c:out value="${user.lastName}"/>"  placeholder="RATE"/>
+      <%--@declare id="role"--%><label for="role">Role</label>
+      <input type="text" name="role" value="<c:out value="${user.role}"/>"  placeholder="Role"/>
     </div>
     <div>
       <input type="submit" value="Submit">

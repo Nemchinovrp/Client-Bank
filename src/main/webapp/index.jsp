@@ -6,6 +6,7 @@
     <title>Client-Bank</title>
 </head>
 <body>
-    <jsp:forward page="/CurrencyController?action=listCurrency"></jsp:forward>
+      <a href="/CurrencyController?action=listCurrency">Currency</a>
+      <a href="/UserController">User</a>
 </body>
 </html>
