@@ -24,7 +24,7 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public Account createAccount(Account account) throws SQLException {
+    public Account createAccount(Account account)  {
         PreparedStatement ps = null;
         try {
             ps = this.connection.prepareStatement(QUERY_INSERT);
@@ -43,7 +43,7 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public List<Account> getAllAccount() throws SQLException {
+    public List<Account> getAllAccount()  {
         List<Account> accountList = new ArrayList<Account>();
         Statement st = null;
         ResultSet rs = null;
@@ -70,7 +70,7 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public Account getAccountById(int id) throws SQLException {
+    public Account getAccountById(int id)  {
         Account account = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -95,7 +95,7 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public boolean updateAccount(Account account) throws SQLException {
+    public boolean updateAccount(Account account)  {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_UPDATE);
@@ -116,7 +116,7 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public boolean deleteAccount(Account account) throws SQLException {
+    public boolean deleteAccount(Account account)  {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_DELETE);

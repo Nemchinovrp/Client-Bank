@@ -24,7 +24,7 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public Transaction createTransaction(Transaction transaction) throws SQLException {
+    public Transaction createTransaction(Transaction transaction){
         PreparedStatement ps = null;
         try {
             ps = this.connection.prepareStatement(QUERY_INSERT);
@@ -42,7 +42,7 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public List<Transaction> getAllTransaction() throws SQLException {
+    public List<Transaction> getAllTransaction()  {
         List<Transaction> transactionList = new ArrayList<Transaction>();
         Statement st = null;
         ResultSet rs = null;
@@ -68,7 +68,7 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public Transaction getTransactionById(int id) throws SQLException {
+    public Transaction getTransactionById(int id)  {
         Transaction transaction = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -92,7 +92,7 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public boolean updateTransaction(Transaction transaction) throws SQLException {
+    public boolean updateTransaction(Transaction transaction)  {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_UPDATE);
@@ -112,7 +112,7 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public boolean deleteTransaction(Transaction transaction) throws SQLException {
+    public boolean deleteTransaction(Transaction transaction)  {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_DELETE);

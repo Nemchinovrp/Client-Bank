@@ -9,9 +9,9 @@ import java.util.List;
  * Created by Roman on 18.01.2016.
  */
 public interface TransactionDAO {
-    Transaction createTransaction(Transaction transaction) throws SQLException;
-    List<Transaction> getAllTransaction() throws SQLException;
-    Transaction getTransactionById(int id) throws SQLException;
-    boolean updateTransaction(Transaction transaction) throws SQLException;
-    boolean deleteTransaction(Transaction transaction) throws SQLException;
+    Transaction createTransaction(Transaction transaction);
+    List<Transaction> getAllTransaction();
+    Transaction getTransactionById(int id) ;
+    boolean updateTransaction(Transaction transaction);
+    boolean deleteTransaction(Transaction transaction);
 }

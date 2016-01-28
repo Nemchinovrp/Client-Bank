@@ -23,7 +23,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     }
 
     @Override
-      public Currency createCurrency(Currency currency) throws SQLException {
+      public Currency createCurrency(Currency currency) {
         PreparedStatement ps = null;
         try {
             ps = this.connection.prepareStatement(QUERY_INSERT);
@@ -40,7 +40,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     }
 
     @Override
-    public List<Currency> getAllCurrency() throws SQLException {
+    public List<Currency> getAllCurrency()  {
         List<Currency> currencies = new ArrayList<Currency>();
         Statement st = null;
         ResultSet rs = null;
@@ -65,7 +65,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     }
 
     @Override
-    public Currency getCurrencyById(int id) throws SQLException {
+    public Currency getCurrencyById(int id) {
         Currency currency = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -88,7 +88,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     }
 
     @Override
-    public boolean updateCurrency(Currency currency) throws SQLException {
+    public boolean updateCurrency(Currency currency)  {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_UPDATE);
@@ -107,7 +107,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     }
 
     @Override
-    public void deleteCurrency(int id) throws SQLException {
+    public void deleteCurrency(int id)  {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_DELETE);

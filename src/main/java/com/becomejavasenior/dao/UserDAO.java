@@ -9,9 +9,13 @@ import java.util.List;
  * Created by Roman on 18.01.2016.
  */
 public interface UserDAO {
-    User createUser(User user) throws SQLException;
-    List<User> getAllUser() throws SQLException;
-    User getUserById(int id) throws SQLException;
-    boolean updateUser(User user) throws SQLException;
-    void deleteUser(int id) throws SQLException;
+    User createUser(User user);
+
+    List<User> getAllUser();
+
+    User getUserById(int id);
+
+    boolean updateUser(User user);
+
+    void deleteUser(int id);
 }

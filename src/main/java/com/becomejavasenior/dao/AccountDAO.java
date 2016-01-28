@@ -9,9 +9,9 @@ import java.util.List;
  * Created by Roman on 18.01.2016.
  */
 public interface AccountDAO {
-    Account createAccount(Account transaction) throws SQLException;
-    List<Account> getAllAccount() throws SQLException;
-    Account getAccountById(int id) throws SQLException;
-    boolean updateAccount(Account account) throws SQLException;
-    boolean deleteAccount(Account account) throws SQLException;
+    Account createAccount(Account transaction);
+    List<Account> getAllAccount();
+    Account getAccountById(int id);
+    boolean updateAccount(Account account);
+    boolean deleteAccount(Account account);
 }

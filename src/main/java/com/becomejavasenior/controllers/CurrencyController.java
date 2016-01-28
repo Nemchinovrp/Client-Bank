@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 
 /**
  * Created by Роман on 24.01.2016.
@@ -36,38 +34,21 @@ public class CurrencyController extends HttpServlet {
         if (action.equalsIgnoreCase("delete")) {
             forward = LIST_CURRENCY;
             int id = Integer.parseInt(request.getParameter("id"));
-            try {
-                dao.deleteCurrency(id);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                request.setAttribute("currencies", dao.getAllCurrency());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            dao.deleteCurrency(id);
+            request.setAttribute("currencies", dao.getAllCurrency());
+
         } else if (action.equalsIgnoreCase("edit")) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
             Currency currency = null;
-            try {
-                currency = dao.getCurrencyById(id);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            currency = dao.getCurrencyById(id);
             request.setAttribute("currency", currency);
         } else if (action.equalsIgnoreCase("insert")) {
             forward = INSERT_OR_EDIT;
-        }
-        else {
+        } else {
             forward = LIST_CURRENCY;
-            try {
-                request.setAttribute("currencies", dao.getAllCurrency());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            request.setAttribute("currencies", dao.getAllCurrency());
         }
-
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
     }
@@ -80,17 +61,9 @@ public class CurrencyController extends HttpServlet {
         currency.setId(Integer.parseInt(request.getParameter("id")));
         currency.setName(request.getParameter("name"));
         currency.setRate(Double.parseDouble(request.getParameter("rate")));
-        try {
-            dao.createCurrency(currency);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        dao.createCurrency(currency);
         RequestDispatcher view = request.getRequestDispatcher(LIST_CURRENCY);
-        try {
-            request.setAttribute("currencies", dao.getAllCurrency());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        request.setAttribute("currencies", dao.getAllCurrency());
         view.forward(request, response);
     }
 }

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -38,36 +37,20 @@ public class UserController extends HttpServlet {
         if (action.equalsIgnoreCase("delete")) {
             forward = LIST_USER;
             int id = Integer.parseInt(request.getParameter("id"));
-            try {
-                dao.deleteUser(id);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                request.setAttribute("users", dao.getAllUser());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            dao.deleteUser(id);
+            request.setAttribute("users", dao.getAllUser());
+
         } else if (action.equalsIgnoreCase("edit")) {
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
             User user = null;
-            try {
-                user = dao.getUserById(id);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            user = dao.getUserById(id);
             request.setAttribute("users", user);
         } else if (action.equalsIgnoreCase("insert")) {
             forward = INSERT_OR_EDIT;
-        }
-        else {
+        } else {
             forward = LIST_USER;
-            try {
-                request.setAttribute("users", dao.getAllUser());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            request.setAttribute("users", dao.getAllUser());
         }
 
         RequestDispatcher view = request.getRequestDispatcher(forward);
@@ -86,7 +69,7 @@ public class UserController extends HttpServlet {
         user.setPassword(request.getParameter("password"));
         Date dob = null;
         try {
-             dob = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("dateOfBirth"));
+            dob = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("dateOfBirth"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -100,18 +83,9 @@ public class UserController extends HttpServlet {
         user.setRegistrationDate(rd);
         user.setGender(request.getParameter("gender"));
         user.setRole(request.getParameter("role"));
-
-        try {
-            dao.createUser(user);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        dao.createUser(user);
         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
-        try {
-            request.setAttribute("users", dao.getAllUser());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        request.setAttribute("users", dao.getAllUser());
         view.forward(request, response);
     }
 }

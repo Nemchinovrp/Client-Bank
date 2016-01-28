@@ -24,7 +24,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User createUser(User user) throws SQLException {
+    public User createUser(User user) {
         PreparedStatement ps = null;
         try {
             ps = this.connection.prepareStatement(QUERY_INSERT);
@@ -47,7 +47,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> getAllUser() throws SQLException {
+    public List<User> getAllUser() {
         List<User> userList = new ArrayList<User>();
         Statement st = null;
         ResultSet rs = null;
@@ -78,7 +78,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getUserById(int id) throws SQLException {
+    public User getUserById(int id)  {
         User user = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -107,7 +107,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean updateUser(User user) throws SQLException {
+    public boolean updateUser(User user) {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_UPDATE);
@@ -132,7 +132,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void deleteUser(int id) throws SQLException {
+    public void deleteUser(int id)  {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_DELETE);
