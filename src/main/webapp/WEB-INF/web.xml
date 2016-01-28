@@ -12,4 +12,12 @@
         <servlet-name>CurrencyController</servlet-name>
         <url-pattern>/CurrencyController.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>com.becomejavasenior.controllers.UserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/UserController.do</url-pattern>
+    </servlet-mapping>
 </web-app>

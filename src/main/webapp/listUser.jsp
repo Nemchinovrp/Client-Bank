@@ -10,7 +10,7 @@
 <html>
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html" ; charset="UTF-8">
-  <title>Currency</title>
+  <title>User</title>
 </head>
 <body>
 <table>
@@ -39,17 +39,14 @@
       <td>${user.dateOfBirth}</td>
       <td>${user.registartionDate}</td>
       <td>${user.gender}</td>
-      <td>${user.id}</td>
-      <td>${user.name}</td>
-      <td>${user.rate}</td>
       <td>${user.role}</td>
-      <td><a href="CurrencyController.do?action=edit&id=<c:out value="${currency.id}"/>">Update</a></td>
-      <td><a href="CurrencyController.do?action=delete&id=<c:out value="${currency.id}"/>">Delete</a></td>
+      <td><a href="UserController.do?action=edit&id=<c:out value="${user.id}"/>">Update</a></td>
+      <td><a href="UserController.do?action=delete&id=<c:out value="${user.id}"/>">Delete</a></td>
     </tr>
   </c:forEach>
 </table>
 <p>
-  <a href="CurrencyController.do?action=insert">Add Currency</a>
+  <a href="UserController.do?action=insert">Add User</a>
 </p>
 
 </body>

@@ -7,6 +7,6 @@
 </head>
 <body>
       <a href="/CurrencyController?action=listCurrency">Currency</a>
-      <a href="/UserController">User</a>
+      <a href="/UserController?action=listUser">User</a>
 </body>
 </html>

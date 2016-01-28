@@ -58,7 +58,8 @@ public class CurrencyController extends HttpServlet {
             request.setAttribute("currency", currency);
         } else if (action.equalsIgnoreCase("insert")) {
             forward = INSERT_OR_EDIT;
-        } else {
+        }
+        else {
             forward = LIST_CURRENCY;
             try {
                 request.setAttribute("currencies", dao.getAllCurrency());
