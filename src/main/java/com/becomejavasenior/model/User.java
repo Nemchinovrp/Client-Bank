@@ -13,14 +13,13 @@ public class User {
     private String password;
     private Date dateOfBirth;
     private Date registrationDate;
-    private String gender;
-    private String role;
+    private int idGender;
+    private int idRole;
 
     public User() {
-
     }
 
-    public User(int id, String firstName, String lastName, String email, String password, Date dateOfBirth, Date registrationDate, String gender, String role) {
+    public User(int id, String firstName, String lastName, String email, String password, Date dateOfBirth, Date registrationDate, int idGender, int idRole) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,8 +27,8 @@ public class User {
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.registrationDate = registrationDate;
-        this.gender = gender;
-        this.role = role;
+        this.idGender = idGender;
+        this.idRole = idRole;
     }
 
     public int getId() {
@@ -88,19 +87,19 @@ public class User {
         this.registrationDate = registrationDate;
     }
 
-    public String getGender() {
-        return gender;
+    public int getIdGender() {
+        return idGender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setIdGender(int idGender) {
+        this.idGender = idGender;
     }
 
-    public String getRole() {
-        return role;
+    public int getIdRole() {
+        return idRole;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setIdRole(int idRole) {
+        this.idRole = idRole;
     }
 }

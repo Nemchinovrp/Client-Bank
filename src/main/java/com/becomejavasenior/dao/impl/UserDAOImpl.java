@@ -2,6 +2,7 @@ package com.becomejavasenior.dao.impl;
 
 import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.dao.UserDAO;
+import com.becomejavasenior.model.Gender;
 import com.becomejavasenior.model.User;
 
 import java.sql.*;
@@ -35,8 +36,8 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(5, user.getPassword());
             ps.setDate(6, (Date) user.getDateOfBirth());
             ps.setDate(7, (Date) user.getRegistrationDate());
-            ps.setString(8, user.getGender());
-            ps.setString(9, user.getRole());
+            ps.setInt(8, user.getIdGender());
+            ps.setInt(9, user.getIdRole());
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -64,8 +65,8 @@ public class UserDAOImpl implements UserDAO {
                 user.setPassword(rs.getString(5));
                 user.setDateOfBirth(rs.getDate(6));
                 user.setRegistrationDate(rs.getDate(7));
-                user.setGender(rs.getString(8));
-                user.setRole(rs.getString(9));
+                user.setIdGender(rs.getInt(8));
+                user.setIdRole(rs.getInt(9));
                 userList.add(user);
             }
         } catch (SQLException e) {
@@ -95,8 +96,8 @@ public class UserDAOImpl implements UserDAO {
                 user.setPassword(rs.getString(5));
                 user.setDateOfBirth(rs.getDate(6));
                 user.setRegistrationDate(rs.getDate(7));
-                user.setGender(rs.getString(8));
-                user.setRole(rs.getString(9));
+                user.setIdGender(rs.getInt(8));
+                user.setIdRole(rs.getInt(9));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -117,8 +118,8 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(4, user.getPassword());
             ps.setDate(5, (Date) user.getDateOfBirth());
             ps.setDate(6, (Date) user.getRegistrationDate());
-            ps.setString(7, user.getGender());
-            ps.setString(8, user.getRole());
+            ps.setInt(7, user.getIdGender());
+            ps.setInt(8, user.getIdRole());
             ps.setInt(9, user.getId());
             return ps.executeUpdate() == 1;
 
