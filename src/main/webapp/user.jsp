@@ -41,16 +41,16 @@
       <input type="text" name="dateOfBirth" value="<c:out value="${user.dateOfBirth}"/>"  placeholder="Date of birth"/>
     </div>
     <div>
-      <%--@declare id="registrationOfDate"--%><label for="registrationOfDate">Registration date</label>
-      <input type="text" name="registrationOfDate" value="<c:out value="${user.registrationOfDate}"/>"  placeholder="Registration date"/>
+      <%--@declare id="registrationDate"--%><label for="registrationDate">Registration date</label>
+      <input type="text" name="registrationDate" value="<c:out value="${user.registrationDate}"/>"  placeholder="Registration date"/>
     </div>
     <div>
-      <%--@declare id="gender"--%><label for="gender">Gender</label>
-      <input type="text" name="gender" value="<c:out value="${user.gender}"/>"  placeholder="Gender"/>
+      <%--@declare id="idGender"--%><label for="idGender">idGender</label>
+      <input type="text" name="idGender" value="<c:out value="${user.idGender}"/>"  placeholder="Gender"/>
     </div>
     <div>
-      <%--@declare id="role"--%><label for="role">Role</label>
-      <input type="text" name="role" value="<c:out value="${user.role}"/>"  placeholder="Role"/>
+      <%--@declare id="idRole"--%><label for="idRole">idRole</label>
+      <input type="text" name="idRole" value="<c:out value="${user.idRole}"/>"  placeholder="Role"/>
     </div>
     <div>
       <input type="submit" value="Submit">

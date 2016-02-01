@@ -13,16 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Roman on 28.01.2016.
  */
 @WebServlet("/UserController")
 public class UserController extends HttpServlet {
-    private UserDAO dao;
     public static final String LIST_USER = "/listUser.jsp";
     public static final String INSERT_OR_EDIT = "/user.jsp";
+    private UserDAO dao;
 
     public UserController() {
         dao = new UserDAOImpl();
@@ -69,20 +72,20 @@ public class UserController extends HttpServlet {
         user.setPassword(request.getParameter("password"));
         Date dob = null;
         try {
-            dob = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("dateOfBirth"));
+            dob = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
         user.setDateOfBirth(dob);
         Date rd = null;
         try {
-            rd = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("registrationDate"));
+            rd = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("registrationDate"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
         user.setRegistrationDate(rd);
-        user.setIdGender(Integer.parseInt(request.getParameter("gender")));
-        user.setIdRole(Integer.parseInt(request.getParameter("role")));
+        user.setIdGender(Integer.parseInt(request.getParameter("idGender")));
+        user.setIdRole(Integer.parseInt(request.getParameter("idRole")));
         dao.createUser(user);
         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
         request.setAttribute("users", dao.getAllUser());

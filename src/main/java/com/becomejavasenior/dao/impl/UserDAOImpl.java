@@ -2,7 +2,6 @@ package com.becomejavasenior.dao.impl;
 
 import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.dao.UserDAO;
-import com.becomejavasenior.model.Gender;
 import com.becomejavasenior.model.User;
 
 import java.sql.*;
@@ -34,8 +33,10 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(3, user.getLastName());
             ps.setString(4, user.getEmail());
             ps.setString(5, user.getPassword());
-            ps.setDate(6, (Date) user.getDateOfBirth());
-            ps.setDate(7, (Date) user.getRegistrationDate());
+            java.sql.Date dateSqlD = new java.sql.Date(user.getDateOfBirth().getTime());
+            ps.setDate(6, dateSqlD);
+            java.sql.Date dateSqlR = new java.sql.Date(user.getRegistrationDate().getTime());
+            ps.setDate(7, dateSqlR);
             ps.setInt(8, user.getIdGender());
             ps.setInt(9, user.getIdRole());
             ps.executeUpdate();
@@ -79,7 +80,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getUserById(int id)  {
+    public User getUserById(int id) {
         User user = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -110,7 +111,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean updateUser(User user) {
         PreparedStatement ps = null;
-        try{
+        try {
             ps = connection.prepareStatement(QUERY_UPDATE);
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getLastName());
@@ -123,27 +124,25 @@ public class UserDAOImpl implements UserDAO {
             ps.setInt(9, user.getId());
             return ps.executeUpdate() == 1;
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             JDBCUtil.close(ps, connection);
         }
         return false;
     }
 
     @Override
-    public void deleteUser(int id)  {
+    public void deleteUser(int id) {
         PreparedStatement ps = null;
-        try{
+        try {
             ps = connection.prepareStatement(QUERY_DELETE);
             ps.setInt(1, id);
             ps.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             JDBCUtil.close(ps, connection);
         }
     }

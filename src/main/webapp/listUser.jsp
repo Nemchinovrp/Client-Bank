@@ -37,9 +37,9 @@
       <td>${user.email}</td>
       <td>${user.password}</td>
       <td>${user.dateOfBirth}</td>
-      <td>${user.registartionDate}</td>
-      <td>${user.gender}</td>
-      <td>${user.role}</td>
+      <td>${user.registrationDate}</td>
+      <td>${user.idGender}</td>
+      <td>${user.idRole}</td>
       <td><a href="UserController.do?action=edit&id=<c:out value="${user.id}"/>">Update</a></td>
       <td><a href="UserController.do?action=delete&id=<c:out value="${user.id}"/>">Delete</a></td>
     </tr>
