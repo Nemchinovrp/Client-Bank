@@ -6,7 +6,7 @@
     <title>Client-Bank</title>
 </head>
 <body>
-      <a href="/CurrencyController?action=listCurrency">Currency</a>
-      <a href="/UserController?action=listUser">User</a>
+
+      <a href="/UserController?action=listUser">Registration user</a>
 </body>
 </html>

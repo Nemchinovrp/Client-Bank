@@ -7,4 +7,4 @@
 out/
 
 target/
-ConnectionProvider.java
+src\main\java\com\becomejavasenior\dao\ConnectionProvider.java

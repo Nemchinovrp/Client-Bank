@@ -1,5 +1,6 @@
 package com.becomejavasenior.dao.impl;
 
+import com.becomejavasenior.controllers.ConvertDate;
 import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.dao.UserDAO;
 import com.becomejavasenior.model.User;
@@ -12,10 +13,10 @@ import java.util.List;
  * Created by Roman on 19.01.2016.
  */
 public class UserDAOImpl implements UserDAO {
-    private static final String QUERY_INSERT = "INSERT INTO User(id, firstName, lastName, email, password, dateOfBirth, registrationDate, gender, role) VALUES (?,?,?,?,?,?,?,?,?)";
+    private static final String QUERY_INSERT = "INSERT INTO User(id, first_name, last_name, email, password, dateOfBirth, registrationdate, id_gender, id_role) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String QUERY_SELECT_ALL = "SELECT * FROM User";
     private static final String QUERY_SELECT_ID = "SELECT * FROM  User WHERE id = ?";
-    private static final String QUERY_UPDATE = "UPDATE User SET firstName = ?, lastName = ?, email = ?, password = ?, dateOfBirth = ?, registrationDate = ?, gender = ?, role = ? WHERE id = ?";
+    private static final String QUERY_UPDATE = "UPDATE User SET first_name = ?, last_name = ?, email = ?, password = ?, dateOfBirth = ?, registrationdate = ?, id_gender = ?, id_role = ? WHERE id = ?";
     private static final String QUERY_DELETE = "DELETE FROM User WHERE id = ?";
     Connection connection;
 
@@ -33,10 +34,8 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(3, user.getLastName());
             ps.setString(4, user.getEmail());
             ps.setString(5, user.getPassword());
-            java.sql.Date dateSqlD = new java.sql.Date(user.getDateOfBirth().getTime());
-            ps.setDate(6, dateSqlD);
-            java.sql.Date dateSqlR = new java.sql.Date(user.getRegistrationDate().getTime());
-            ps.setDate(7, dateSqlR);
+            ps.setDate(6, ConvertDate.convert(user.getDateOfBirth()));
+            ps.setDate(7, ConvertDate.convert(user.getRegistrationDate()));
             ps.setInt(8, user.getIdGender());
             ps.setInt(9, user.getIdRole());
             ps.executeUpdate();

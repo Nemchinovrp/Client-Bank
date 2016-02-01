@@ -66,8 +66,8 @@ public class UserController extends HttpServlet {
             throws ServletException, IOException {
         User user = new User();
         user.setId(Integer.parseInt(request.getParameter("id")));
-        user.setFirstName(request.getParameter("firstname"));
-        user.setLastName(request.getParameter("lastname"));
+        user.setFirstName(request.getParameter("firstName"));
+        user.setLastName(request.getParameter("lastName"));
         user.setEmail(request.getParameter("email"));
         user.setPassword(request.getParameter("password"));
         Date dob = null;
