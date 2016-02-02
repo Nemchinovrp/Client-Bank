@@ -9,7 +9,7 @@
 
       <a href="/UserController?action=listUser">Registration user</a>
 <br>
-      <a href="/LoginController?action=log">Login in</a>
+      <a href="/LoginController?action=login">Login in</a>
       <br>
 
 </body>
