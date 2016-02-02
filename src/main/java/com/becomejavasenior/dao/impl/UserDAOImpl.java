@@ -108,7 +108,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean updateUser(User user) {
+    public void updateUser(User user) {
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(QUERY_UPDATE);
@@ -116,19 +116,18 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(2, user.getLastName());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPassword());
-            ps.setDate(5, (Date) user.getDateOfBirth());
-            ps.setDate(6, (Date) user.getRegistrationDate());
+            ps.setDate(5, ConvertDate.convert(user.getDateOfBirth()));
+            ps.setDate(6, ConvertDate.convert(user.getRegistrationDate()));
             ps.setInt(7, user.getIdGender());
             ps.setInt(8, user.getIdRole());
             ps.setInt(9, user.getId());
-            return ps.executeUpdate() == 1;
+            ps.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
             JDBCUtil.close(ps, connection);
         }
-        return false;
     }
 
     @Override

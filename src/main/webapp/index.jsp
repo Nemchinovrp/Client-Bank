@@ -8,5 +8,9 @@
 <body>
 
       <a href="/UserController?action=listUser">Registration user</a>
+<br>
+      <a href="/LoginController?action=log">Login in</a>
+      <br>
+
 </body>
 </html>

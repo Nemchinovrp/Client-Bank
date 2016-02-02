@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * Created by Roman on 28.01.2016.
@@ -48,14 +45,14 @@ public class UserController extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             User user = null;
             user = dao.getUserById(id);
-            request.setAttribute("users", user);
-        } else if (action.equalsIgnoreCase("insert")) {
-            forward = INSERT_OR_EDIT;
-        } else {
+            request.setAttribute("user", user);
+        } else if (action.equalsIgnoreCase("listUser")) {
             forward = LIST_USER;
             request.setAttribute("users", dao.getAllUser());
-        }
+        } else {
+            forward = INSERT_OR_EDIT;
 
+        }
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
     }
