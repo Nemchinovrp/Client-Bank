@@ -23,6 +23,9 @@
             <%--@declare id="password"--%><label for="password">Password</label>
             <input type="text" name="password" value="<c:out value="${user.password}"/>" placeholder="password"/>
         </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
     </fieldset>
 </form>
 </body>

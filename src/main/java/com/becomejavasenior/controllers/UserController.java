@@ -48,6 +48,7 @@ public class UserController extends HttpServlet {
             request.setAttribute("user", user);
         } else if (action.equalsIgnoreCase("listUser")) {
             forward = LIST_USER;
+            //response.sendRedirect(forward);
             request.setAttribute("users", dao.getAllUser());
         } else {
             forward = INSERT_OR_EDIT;
@@ -55,6 +56,7 @@ public class UserController extends HttpServlet {
         }
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
+
     }
 
 
