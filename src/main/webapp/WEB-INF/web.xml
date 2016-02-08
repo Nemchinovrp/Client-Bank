@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
     <display-name>Client-Bank</display-name>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <description>MySQL Test App</description>
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/TestDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
     <servlet>
-        <servlet-name>UserController</servlet-name>
-        <servlet-class>com.becomejavasenior.controllers.UserController</servlet-class>
+        <servlet-name>UserListController</servlet-name>
+        <servlet-class>com.becomejavasenior.controllers.UserListController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserController</servlet-name>
-        <url-pattern>/UserController.do</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>com.becomejavasenior.controllers.LoginController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/LoginController.do</url-pattern>
+        <servlet-name>UserListController</servlet-name>
+        <url-pattern>/UserListController.do</url-pattern>
     </servlet-mapping>
 
 </web-app>

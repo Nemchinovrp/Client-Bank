@@ -3,6 +3,8 @@ package com.becomejavasenior.controllers;
 import com.becomejavasenior.dao.UserDAO;
 import com.becomejavasenior.dao.impl.UserDAOImpl;
 import com.becomejavasenior.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,13 +20,15 @@ import java.util.Date;
 /**
  * Created by Roman on 28.01.2016.
  */
-@WebServlet("/UserController")
-public class UserController extends HttpServlet {
+@WebServlet("/UserListController")
+public class UserListController extends HttpServlet {
+    Logger logger = LoggerFactory.getLogger(UserListController.class);
+
     public static final String LIST_USER = "/listUser.jsp";
     public static final String INSERT_OR_EDIT = "/user.jsp";
     private UserDAO dao;
 
-    public UserController() {
+    public UserListController() {
         dao = new UserDAOImpl();
     }
 
@@ -33,20 +37,8 @@ public class UserController extends HttpServlet {
             throws IOException, ServletException {
         String forward = "";
         String action = request.getParameter("action");
-
-        if (action.equalsIgnoreCase("delete")) {
-            forward = LIST_USER;
-            int id = Integer.parseInt(request.getParameter("id"));
-            dao.deleteUser(id);
-            request.setAttribute("users", dao.getAllUser());
-
-        } else if (action.equalsIgnoreCase("edit")) {
-            forward = INSERT_OR_EDIT;
-            int id = Integer.parseInt(request.getParameter("id"));
-            User user = null;
-            user = dao.getUserById(id);
-            request.setAttribute("user", user);
-        } else if (action.equalsIgnoreCase("listUser")) {
+        logger.info("Обращение к контроллеру");
+        if (action.equalsIgnoreCase("listUser")) {
             forward = LIST_USER;
             //response.sendRedirect(forward);
             request.setAttribute("users", dao.getAllUser());
@@ -56,7 +48,7 @@ public class UserController extends HttpServlet {
         }
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
-
+        logger.info("запрос отправлен");
     }
 
 

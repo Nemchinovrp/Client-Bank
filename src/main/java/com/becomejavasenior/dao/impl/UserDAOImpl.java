@@ -21,7 +21,13 @@ public class UserDAOImpl implements UserDAO {
     Connection connection;
 
     public UserDAOImpl() {
-        connection = ConnectionProvider.getConnection();
+        ConnectionProvider cp = new ConnectionProvider();
+        try {
+            connection = cp.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

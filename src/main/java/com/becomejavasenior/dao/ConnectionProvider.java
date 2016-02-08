@@ -1,29 +1,30 @@
 package com.becomejavasenior.dao;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
  * Created by Roman on 19.01.2016.
  */
 public class ConnectionProvider {
-    static final String URL = "jdbc:mysql://mysql37.hostland.ru/host1378713";
-    static final String USER = "host1378713_root";
-    static final String PASSWORD = "265f61ab";
+    private InitialContext ic;
+    private DataSource ds;
 
-    public static Connection getConnection() {
-        Connection connection = null;
+    public Connection getConnection() throws SQLException {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("Connecting to database...");
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Connected database successfully...");
-        } catch (SQLException se) {
-            se.printStackTrace();
-        } catch (Exception e) {
+            ic = new InitialContext();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
-        return connection;
+        try {
+            ds = (DataSource) ic.lookup("java:/comp/env/jdbc/TestDB");
+            System.out.println("Connect to database");
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+        return ds.getConnection();
     }
 }

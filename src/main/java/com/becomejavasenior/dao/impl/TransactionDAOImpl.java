@@ -20,7 +20,12 @@ public class TransactionDAOImpl implements TransactionDAO {
     Connection connection;
 
     public TransactionDAOImpl() {
-        connection = ConnectionProvider.getConnection();
+        ConnectionProvider cp = new ConnectionProvider();
+        try {
+            connection = cp.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

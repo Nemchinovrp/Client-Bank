@@ -19,7 +19,12 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     Connection connection;
 
     public CurrencyDAOImpl() {
-        connection = ConnectionProvider.getConnection();
+        ConnectionProvider cp = new ConnectionProvider();
+        try {
+            connection = cp.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

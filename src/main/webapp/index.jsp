@@ -7,10 +7,8 @@
 </head>
 <body>
 
-      <a href="/UserController?action=listUser">Registration user</a>
-<br>
-      <a href="/LoginController?action=login">Login in</a>
-      <br>
+<a href="/UserListController?action=listUser">Registration user</a>
+
 
 </body>
 </html>

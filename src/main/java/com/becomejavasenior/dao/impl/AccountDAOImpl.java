@@ -20,7 +20,12 @@ public class AccountDAOImpl implements AccountDAO {
     Connection connection;
 
     public AccountDAOImpl() {
-        connection = ConnectionProvider.getConnection();
+        ConnectionProvider cp = new ConnectionProvider();
+        try {
+            connection = cp.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
