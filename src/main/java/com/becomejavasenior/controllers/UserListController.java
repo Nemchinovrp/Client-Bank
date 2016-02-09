@@ -3,8 +3,8 @@ package com.becomejavasenior.controllers;
 import com.becomejavasenior.dao.UserDAO;
 import com.becomejavasenior.dao.impl.UserDAOImpl;
 import com.becomejavasenior.model.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,10 +22,9 @@ import java.util.Date;
  */
 @WebServlet("/UserListController")
 public class UserListController extends HttpServlet {
-    Logger logger = LoggerFactory.getLogger(UserListController.class);
-
     public static final String LIST_USER = "/listUser.jsp";
     public static final String INSERT_OR_EDIT = "/user.jsp";
+    static final Logger logger = LogManager.getRootLogger();
     private UserDAO dao;
 
     public UserListController() {
@@ -37,7 +36,7 @@ public class UserListController extends HttpServlet {
             throws IOException, ServletException {
         String forward = "";
         String action = request.getParameter("action");
-        logger.info("Обращение к контроллеру");
+        logger.info("Action controller begin");
         if (action.equalsIgnoreCase("listUser")) {
             forward = LIST_USER;
             //response.sendRedirect(forward);
@@ -48,7 +47,8 @@ public class UserListController extends HttpServlet {
         }
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
-        logger.info("запрос отправлен");
+        logger.info("Action controller end");
+
     }
 
 
