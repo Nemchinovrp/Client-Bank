@@ -48,11 +48,11 @@
         </div>
         <div>
             <%--@declare id="idGender"--%><label for="idGender">idGender</label>
-            <input type="text" name="idGender" value="<c:out value="${user.idGender}"/>" placeholder="Gender"/>
+            <input type="text" name="idGender" value="<c:out value="${user.gender}"/>" placeholder="Gender"/>
         </div>
         <div>
             <%--@declare id="idRole"--%><label for="idRole">idRole</label>
-            <input type="text" name="idRole" value="<c:out value="${user.idRole}"/>" placeholder="Role"/>
+            <input type="text" name="idRole" value="<c:out value="${user.role}"/>" placeholder="Role"/>
         </div>
         <div>
             <input type="submit" value="Submit">

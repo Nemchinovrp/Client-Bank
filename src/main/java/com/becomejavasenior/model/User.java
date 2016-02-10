@@ -1,6 +1,5 @@
 package com.becomejavasenior.model;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -14,13 +13,13 @@ public class User {
     private String password;
     private Date dateOfBirth;
     private Date registrationDate;
-    private int idGender;
-    private int idRole;
+    private Gender gender;
+    private Role role;
 
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String email, String password, Date dateOfBirth, Date registrationDate, int idGender, int idRole) {
+    public User(int id, String firstName, String lastName, String email, String password, Date dateOfBirth, Date registrationDate, Gender gender, Role role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,8 +27,8 @@ public class User {
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.registrationDate = registrationDate;
-        this.idGender = idGender;
-        this.idRole = idRole;
+        this.gender = gender;
+        this.role = role;
     }
 
     public int getId() {
@@ -88,19 +87,19 @@ public class User {
         this.registrationDate = registrationDate;
     }
 
-    public int getIdGender() {
-        return idGender;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setIdGender(int idGender) {
-        this.idGender = idGender;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
-    public int getIdRole() {
-        return idRole;
+    public Role getRole() {
+        return role;
     }
 
-    public void setIdRole(int idRole) {
-        this.idRole = idRole;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

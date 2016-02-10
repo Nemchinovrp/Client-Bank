@@ -3,6 +3,8 @@ package com.becomejavasenior.dao.impl;
 import com.becomejavasenior.controllers.ConvertDate;
 import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.dao.UserDAO;
+import com.becomejavasenior.model.Gender;
+import com.becomejavasenior.model.Role;
 import com.becomejavasenior.model.User;
 
 import java.sql.*;
@@ -42,8 +44,8 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(5, user.getPassword());
             ps.setDate(6, ConvertDate.convert(user.getDateOfBirth()));
             ps.setDate(7, ConvertDate.convert(user.getRegistrationDate()));
-            ps.setInt(8, user.getIdGender());
-            ps.setInt(9, user.getIdRole());
+            ps.setString(8, user.getGender().toString());
+            ps.setString(9, user.getRole().toString());
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -71,8 +73,8 @@ public class UserDAOImpl implements UserDAO {
                 user.setPassword(rs.getString(5));
                 user.setDateOfBirth(rs.getDate(6));
                 user.setRegistrationDate(rs.getDate(7));
-                user.setIdGender(rs.getInt(8));
-                user.setIdRole(rs.getInt(9));
+                user.setGender(Gender.fromString(rs.getString(8)));
+                user.setRole(Role.fromString(rs.getString(9)));
                 userList.add(user);
             }
         } catch (SQLException e) {
@@ -102,8 +104,8 @@ public class UserDAOImpl implements UserDAO {
                 user.setPassword(rs.getString(5));
                 user.setDateOfBirth(rs.getDate(6));
                 user.setRegistrationDate(rs.getDate(7));
-                user.setIdGender(rs.getInt(8));
-                user.setIdRole(rs.getInt(9));
+                user.setGender(Gender.fromString(rs.getString(8)));
+                user.setRole(Role.fromString(rs.getString(9)));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -124,8 +126,8 @@ public class UserDAOImpl implements UserDAO {
             ps.setString(4, user.getPassword());
             ps.setDate(5, ConvertDate.convert(user.getDateOfBirth()));
             ps.setDate(6, ConvertDate.convert(user.getRegistrationDate()));
-            ps.setInt(7, user.getIdGender());
-            ps.setInt(8, user.getIdRole());
+            ps.setString(7, user.getGender().toString());
+            ps.setString(8, user.getRole().toString());
             ps.setInt(9, user.getId());
             ps.executeUpdate();
 

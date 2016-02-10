@@ -2,6 +2,8 @@ package com.becomejavasenior.controllers;
 
 import com.becomejavasenior.dao.UserDAO;
 import com.becomejavasenior.dao.impl.UserDAOImpl;
+import com.becomejavasenior.model.Gender;
+import com.becomejavasenior.model.Role;
 import com.becomejavasenior.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -75,8 +77,8 @@ public class UserListController extends HttpServlet {
             e.printStackTrace();
         }
         user.setRegistrationDate(rd);
-        user.setIdGender(Integer.parseInt(request.getParameter("idGender")));
-        user.setIdRole(Integer.parseInt(request.getParameter("idRole")));
+        user.setGender(Gender.fromString(request.getParameter("idGender")));
+        user.setRole(Role.fromString(request.getParameter("idRole")));
         dao.createUser(user);
         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
         request.setAttribute("users", dao.getAllUser());
