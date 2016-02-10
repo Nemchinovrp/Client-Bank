@@ -5,6 +5,7 @@ import com.becomejavasenior.dao.impl.UserDAOImpl;
 import com.becomejavasenior.model.User;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import java.io.IOException;
 /**
  * Created by Роман on 07.02.2016.
  */
+@WebServlet("/UserUpdateController.do")
 public class UserUpdateController extends HttpServlet {
     private UserDAO dao;
 

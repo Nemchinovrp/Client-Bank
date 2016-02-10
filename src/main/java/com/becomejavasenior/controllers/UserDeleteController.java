@@ -4,6 +4,7 @@ import com.becomejavasenior.dao.UserDAO;
 import com.becomejavasenior.dao.impl.UserDAOImpl;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,11 +13,12 @@ import java.io.IOException;
 /**
  * Created by Роман on 07.02.2016.
  */
-public class UsetDeleteController extends HttpServlet {
+@WebServlet("/UserDeleteController.do")
+public class UserDeleteController extends HttpServlet {
 
     private UserDAO dao;
 
-    public UsetDeleteController() {
+    public UserDeleteController() {
         dao = new UserDAOImpl();
     }
 

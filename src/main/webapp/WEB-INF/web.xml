@@ -24,4 +24,13 @@
         <url-pattern>/UserListController.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AccountListController</servlet-name>
+        <servlet-class>com.becomejavasenior.controllers.AccountListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountListController</servlet-name>
+        <url-pattern>/AccountListController.do</url-pattern>
+    </servlet-mapping>
+
 </web-app>

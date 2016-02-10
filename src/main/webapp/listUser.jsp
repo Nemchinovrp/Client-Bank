@@ -40,8 +40,8 @@
             <td>${user.registrationDate}</td>
             <td>${user.gender}</td>
             <td>${user.role}</td>
-            <td><a href="UserListController.do?action=edit&id=<c:out value="${user.id}"/>">Update</a></td>
-            <td><a href="UserListController.do?action=delete&id=<c:out value="${user.id}"/>">Delete</a></td>
+            <td><a href="UserUpdateController.do?action=edit&id=<c:out value="${user.id}"/>">Update</a></td>
+            <td><a href="UserDeleteController.do?action=delete&id=<c:out value="${user.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
