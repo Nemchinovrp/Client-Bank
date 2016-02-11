@@ -22,7 +22,6 @@
         <th>Balance</th>
         <th>User</th>
         <th>Action</th>
-        <th>Action</th>
     </tr>
     </thead>
     <c:forEach items="${accounts}" var="account">
@@ -32,7 +31,6 @@
             <td>${account.idCurrency}</td>
             <td>${account.balance}</td>
             <td>${account.userId}</td>
-            <td><a href="AccountUpdateController.do?action=edit&id=<c:out value="${account.id}"/>">Update</a></td>
             <td><a href="AccountDeleteController.do?action=delete&id=<c:out value="${account.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>

@@ -13,7 +13,7 @@
     <title>Add New User</title>
 </head>
 <body>
-<form action="UserListController.do" method="post">
+<form action="UserAddController.do" method="post">
 
     <fieldset>
         <div>

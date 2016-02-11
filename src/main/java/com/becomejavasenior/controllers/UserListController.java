@@ -53,35 +53,4 @@ public class UserListController extends HttpServlet {
 
     }
 
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        User user = new User();
-        user.setId(Integer.parseInt(request.getParameter("id")));
-        user.setFirstName(request.getParameter("firstName"));
-        user.setLastName(request.getParameter("lastName"));
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
-        Date dob = null;
-        try {
-            dob = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        user.setDateOfBirth(dob);
-        Date rd = null;
-        try {
-            rd = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("registrationDate"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        user.setRegistrationDate(rd);
-        user.setGender(Gender.fromString(request.getParameter("idGender")));
-        user.setRole(Role.fromString(request.getParameter("idRole")));
-        dao.createUser(user);
-        RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
-        request.setAttribute("users", dao.getAllUser());
-        view.forward(request, response);
-    }
 }

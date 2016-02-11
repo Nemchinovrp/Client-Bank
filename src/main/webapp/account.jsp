@@ -13,7 +13,7 @@
     <title>Add Account</title>
 </head>
 <body>
-<form action="AccountListController.do" method="post">
+<form action="AccountAddController.do" method="post">
 
     <fieldset>
         <div>
@@ -37,7 +37,9 @@
             <%--@declare id="user"--%><label for="user">User</label>
             <input type="text" name="user" value="<c:out value="${account.userId}"/>" placeholder="user"/>
         </div>
-
+        <div>
+            <input type="submit" value="Submit">
+        </div>
     </fieldset>
 
 </form>

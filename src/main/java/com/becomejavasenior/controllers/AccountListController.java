@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,7 @@ import java.util.Date;
 /**
  * Created by Roman on 10.02.2016.
  */
+@WebServlet("/AccountListController")
 public class AccountListController extends HttpServlet {
     public static final String LIST_ACCOUNT = "/listAccount.jsp";
     public static final String INSERT_OR_EDIT = "/account.jsp";

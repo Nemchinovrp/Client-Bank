@@ -26,7 +26,6 @@
         <th>Gender</th>
         <th>Role</th>
         <th>Action</th>
-        <th>Action</th>
     </tr>
     </thead>
     <c:forEach items="${users}" var="user">
@@ -40,7 +39,6 @@
             <td>${user.registrationDate}</td>
             <td>${user.gender}</td>
             <td>${user.role}</td>
-            <td><a href="UserUpdateController.do?action=edit&id=<c:out value="${user.id}"/>">Update</a></td>
             <td><a href="UserDeleteController.do?action=delete&id=<c:out value="${user.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>

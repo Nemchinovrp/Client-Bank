@@ -10,8 +10,8 @@ import java.io.IOException;
 /**
  * Created by Roman on 10.02.2016.
  */
-@WebServlet("/AccountUpdateController.do")
-public class AccountUpdateController extends HttpServlet {
+@WebServlet("/AccountAddController.do")
+public class AccountAddController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
