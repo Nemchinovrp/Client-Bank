@@ -13,5 +13,5 @@ public interface TransactionDAO {
     List<Transaction> getAllTransaction();
     Transaction getTransactionById(int id) ;
     boolean updateTransaction(Transaction transaction);
-    boolean deleteTransaction(Transaction transaction);
+    void deleteTransaction(int id);
 }

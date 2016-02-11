@@ -12,5 +12,9 @@
 <a href="/AccountListController?action=listAccount">Account</a>
 <br>
 
+<br>
+<a href="/TransactionListController?action=listTransaction">Transaction</a>
+<br>
+
 </body>
 </html>

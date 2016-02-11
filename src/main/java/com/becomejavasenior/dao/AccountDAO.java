@@ -13,5 +13,5 @@ public interface AccountDAO {
     List<Account> getAllAccount();
     Account getAccountById(int id);
     boolean updateAccount(Account account);
-    boolean deleteAccount(Account account);
+    void deleteAccount(int id);
 }

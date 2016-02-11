@@ -12,10 +12,10 @@ import java.util.List;
  * Created by Roman on 19.01.2016.
  */
 public class AccountDAOImpl implements AccountDAO {
-    private static final String QUERY_INSERT = "INSERT INTO Account(id, accountType, idCurrency, balance, usersId) VALUES (?,?,?,?,?)";
+    private static final String QUERY_INSERT = "INSERT INTO Account(id, account, id_currency, balance, users_id) VALUES (?,?,?,?,?)";
     private static final String QUERY_SELECT_ALL = "SELECT * FROM Account";
     private static final String QUERY_SELECT_ID = "SELECT * FROM  Account WHERE id = ?";
-    private static final String QUERY_UPDATE = "UPDATE Account SET accountType = ?, idCurrency = ?, balance = ?, userId = ? WHERE id = ?";
+    private static final String QUERY_UPDATE = "UPDATE Account SET account = ?, id_currency = ?, balance = ?, user_id = ? WHERE id = ?";
     private static final String QUERY_DELETE = "DELETE FROM Account WHERE id = ?";
     Connection connection;
 
@@ -29,15 +29,15 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public Account createAccount(Account account)  {
+    public Account createAccount(Account account) {
         PreparedStatement ps = null;
         try {
             ps = this.connection.prepareStatement(QUERY_INSERT);
             ps.setInt(1, account.getId());
             ps.setString(2, account.getAccountType());
-            ps.setInt(3, account.getId_currency());
+            ps.setInt(3, account.getIdCurrency());
             ps.setDouble(4, account.getBalance());
-            ps.setInt(5, account.getUsers_id());
+            ps.setInt(5, account.getUsersId());
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -48,7 +48,7 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public List<Account> getAllAccount()  {
+    public List<Account> getAllAccount() {
         List<Account> accountList = new ArrayList<Account>();
         Statement st = null;
         ResultSet rs = null;
@@ -60,9 +60,9 @@ public class AccountDAOImpl implements AccountDAO {
                 account = new Account();
                 account.setId(rs.getInt(1));
                 account.setAccountType(rs.getString(2));
-                account.setId_currency(rs.getInt(3));
+                account.setIdCurrency(rs.getInt(3));
                 account.setBalance(rs.getDouble(4));
-                account.setUsers_id(rs.getInt(5));
+                account.setUsersId(rs.getInt(5));
                 accountList.add(account);
             }
         } catch (SQLException e) {
@@ -75,7 +75,7 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public Account getAccountById(int id)  {
+    public Account getAccountById(int id) {
         Account account = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -87,9 +87,9 @@ public class AccountDAOImpl implements AccountDAO {
                 account = new Account();
                 account.setId(rs.getInt(1));
                 account.setAccountType(rs.getString(2));
-                account.setId_currency(rs.getInt(3));
+                account.setIdCurrency(rs.getInt(3));
                 account.setBalance(rs.getDouble(4));
-                account.setUsers_id(rs.getInt(5));
+                account.setUsersId(rs.getInt(5));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -100,40 +100,37 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public boolean updateAccount(Account account)  {
+    public boolean updateAccount(Account account) {
         PreparedStatement ps = null;
-        try{
+        try {
             ps = connection.prepareStatement(QUERY_UPDATE);
             ps.setString(1, account.getAccountType());
-            ps.setInt(2, account.getId_currency());
+            ps.setInt(2, account.getIdCurrency());
             ps.setDouble(3, account.getBalance());
-            ps.setInt(4, account.getUsers_id());
+            ps.setInt(4, account.getUsersId());
             ps.setInt(5, account.getId());
             return ps.executeUpdate() == 1;
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             JDBCUtil.close(ps, connection);
         }
         return false;
     }
 
     @Override
-    public boolean deleteAccount(Account account)  {
+    public void deleteAccount(int id) {
         PreparedStatement ps = null;
-        try{
+        try {
             ps = connection.prepareStatement(QUERY_DELETE);
-            ps.setInt(1, account.getId());
-            return ps.executeUpdate() == 1;
+            ps.setInt(1, id);
+            ps.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             JDBCUtil.close(ps, connection);
         }
-        return false;
     }
 }

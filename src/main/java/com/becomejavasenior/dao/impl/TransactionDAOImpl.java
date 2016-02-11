@@ -12,10 +12,10 @@ import java.util.List;
  * Created by Roman on 19.01.2016.
  */
 public class TransactionDAOImpl implements TransactionDAO {
-    private static final String QUERY_INSERT = "INSERT INTO Transaction(id, idAccount, operation, amount) VALUES (?,?,?,?)";
+    private static final String QUERY_INSERT = "INSERT INTO Transaction(id, id_account, operation, amount) VALUES (?,?,?,?)";
     private static final String QUERY_SELECT_ALL = "SELECT * FROM Transaction";
     private static final String QUERY_SELECT_ID = "SELECT * FROM  Transaction WHERE id = ?";
-    private static final String QUERY_UPDATE = "UPDATE Transaction SET idAccount = ?, operation = ?, amount = ? WHERE id = ?";
+    private static final String QUERY_UPDATE = "UPDATE Transaction SET id_account = ?, operation = ?, amount = ? WHERE id = ?";
     private static final String QUERY_DELETE = "DELETE FROM Transaction WHERE id = ?";
     Connection connection;
 
@@ -117,12 +117,12 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public boolean deleteTransaction(Transaction transaction)  {
+    public void deleteTransaction(int id)  {
         PreparedStatement ps = null;
         try{
             ps = connection.prepareStatement(QUERY_DELETE);
-            ps.setInt(1, transaction.getId());
-            return ps.executeUpdate() == 1;
+            ps.setInt(1, id);
+            ps.executeUpdate();
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -130,6 +130,5 @@ public class TransactionDAOImpl implements TransactionDAO {
         finally {
             JDBCUtil.close(ps, connection);
         }
-        return false;
     }
 }

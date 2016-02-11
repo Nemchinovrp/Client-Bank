@@ -37,25 +37,27 @@ public class Account {
         this.accountType = accountType;
     }
 
-    public int getId_currency() {
+    public int getIdCurrency() {
         return idCurrency;
     }
 
-    public void setId_currency(int id_currency) {
-        this.idCurrency = id_currency;
+    public void setIdCurrency(int idCurrency) {
+        this.idCurrency = idCurrency;
     }
 
-    public double getBalance() {return balance;}
+    public double getBalance() {
+        return balance;
+    }
 
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public int getUsers_id() {
+    public int getUsersId() {
         return usersId;
     }
 
-    public void setUsers_id(int users_id) {
-        this.usersId = users_id;
+    public void setUsersId(int usersId) {
+        this.usersId = usersId;
     }
 }

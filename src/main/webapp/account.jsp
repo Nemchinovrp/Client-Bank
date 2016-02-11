@@ -26,16 +26,16 @@
                    placeholder="accountType"/>
         </div>
         <div>
-            <%--@declare id="currency"--%><label for="currency">Currency</label>
-            <input type="text" name="currency" value="<c:out value="${account.idCurrency}"/>" placeholder="currency"/>
+            <%--@declare id="idCurrency"--%><label for="idCurrency">Currency</label>
+            <input type="text" name="idCurrency" value="<c:out value="${account.idCurrency}"/>" placeholder="currency"/>
         </div>
         <div>
             <%--@declare id="balance"--%><label for="balance">Balance</label>
             <input type="text" name="balance" value="<c:out value="${account.balance}"/>" placeholder="balance"/>
         </div>
         <div>
-            <%--@declare id="user"--%><label for="user">User</label>
-            <input type="text" name="user" value="<c:out value="${account.userId}"/>" placeholder="user"/>
+            <%--@declare id="usersId"--%><label for="usersId">User</label>
+            <input type="text" name="usersId" value="<c:out value="${account.usersId}"/>" placeholder="user"/>
         </div>
         <div>
             <input type="submit" value="Submit">

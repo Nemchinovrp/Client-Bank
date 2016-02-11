@@ -30,7 +30,7 @@ public class UserDeleteController extends HttpServlet {
 
             int id = Integer.parseInt(request.getParameter("id"));
             dao.deleteUser(id);
-            response.sendRedirect("/UserController?action=listUser");
+            response.sendRedirect("/UserListController?action=listUser");
 
         }
     }

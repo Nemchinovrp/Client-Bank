@@ -30,7 +30,7 @@
             <td>${account.accountType}</td>
             <td>${account.idCurrency}</td>
             <td>${account.balance}</td>
-            <td>${account.userId}</td>
+            <td>${account.usersId}</td>
             <td><a href="AccountDeleteController.do?action=delete&id=<c:out value="${account.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>
