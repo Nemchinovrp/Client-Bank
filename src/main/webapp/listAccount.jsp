@@ -31,12 +31,12 @@
             <td>${account.idCurrency}</td>
             <td>${account.balance}</td>
             <td>${account.usersId}</td>
-            <td><a href="AccountDeleteController.do?action=delete&id=<c:out value="${account.id}"/>">Delete</a></td>
+            <td><a href="AccountDeleteController?action=delete&id=<c:out value="${account.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
 <p>
-    <a href="AccountListController.do?action=insert">Add Account</a>
+    <a href="AccountListController?action=insert">Add Account</a>
 </p>
 
 </body>

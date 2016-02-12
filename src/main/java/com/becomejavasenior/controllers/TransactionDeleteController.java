@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Roman on 11.02.2016.
+ * Created by Roman on 12.02.2016.
  */
-@WebServlet("/TransactionDeleteController")
+@WebServlet("/TransactionDeleteController.do")
 public class TransactionDeleteController extends HttpServlet {
     TransactionDAO dao;
 

@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by Roman on 10.02.2016.
  */
-@WebServlet("/AccountDeleteController.do")
+@WebServlet("/AccountDeleteController")
 public class AccountDeleteController extends HttpServlet {
     AccountDAO dao;
     AccountDeleteController(){
