@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by Roman on 12.02.2016.
  */
-@WebServlet("/TransactionDeleteController.do")
+@WebServlet("/TransactionDeleteController")
 public class TransactionDeleteController extends HttpServlet {
     TransactionDAO dao;
 

@@ -29,7 +29,7 @@
       <td>${transaction.idAccount}</td>
       <td>${transaction.operation}</td>
       <td>${transaction.amount}</td>
-      <td><a href="TransactionDeleteController.do?action=delete&id=<c:out value="${transaction.id}"/>">Delete</a></td>
+      <td><a href="TransactionDeleteController?action=delete&id=<c:out value="${transaction.id}"/>">Delete</a></td>
     </tr>
   </c:forEach>
 </table>

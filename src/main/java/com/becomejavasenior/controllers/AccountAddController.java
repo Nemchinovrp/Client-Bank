@@ -30,12 +30,16 @@ public class AccountAddController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("begin add object account");
-        Account account = new Account();
-        account.setId(Integer.parseInt(request.getParameter("id")));
+        Account account = new Account(Integer.parseInt(request.getParameter("id")),
+                request.getParameter("accountType"),
+                Integer.parseInt(request.getParameter("idCurrency")),
+                Double.parseDouble(request.getParameter("balance")),
+                Integer.parseInt(request.getParameter("usersId")));
+       /* account.setId(Integer.parseInt(request.getParameter("id")));
         account.setAccountType(request.getParameter("accountType"));
         account.setIdCurrency(Integer.parseInt(request.getParameter("idCurrency")));
         account.setBalance(Double.parseDouble(request.getParameter("balance")));
-        account.setUsersId(Integer.parseInt(request.getParameter("usersId")));
+        account.setUsersId(Integer.parseInt(request.getParameter("usersId")));*/
         dao.createAccount(account);
         logger.info("end add object account");
         RequestDispatcher view = request.getRequestDispatcher(LIST_ACCOUNT);

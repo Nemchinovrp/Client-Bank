@@ -12,10 +12,10 @@ import java.util.List;
  * Created by Roman on 19.01.2016.
  */
 public class AccountDAOImpl implements AccountDAO {
-    private static final String QUERY_INSERT = "INSERT INTO Account(id, account, id_currency, balance, users_id) VALUES (?,?,?,?,?)";
+    private static final String QUERY_INSERT = "INSERT INTO Account(id, accountType, id_currency, balance, user_id) VALUES (?,?,?,?,?)";
     private static final String QUERY_SELECT_ALL = "SELECT * FROM Account";
     private static final String QUERY_SELECT_ID = "SELECT * FROM  Account WHERE id = ?";
-    private static final String QUERY_UPDATE = "UPDATE Account SET account = ?, id_currency = ?, balance = ?, user_id = ? WHERE id = ?";
+    private static final String QUERY_UPDATE = "UPDATE Account SET accountType = ?, id_currency = ?, balance = ?, user_id = ? WHERE id = ?";
     private static final String QUERY_DELETE = "DELETE FROM Account WHERE id = ?";
     Connection connection;
     ConnectionProvider cp = null;
