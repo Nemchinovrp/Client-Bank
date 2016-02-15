@@ -32,7 +32,6 @@ public enum Role {
             }
         }
           return CLIENT;
-      //  throw new IllegalArgumentException("No such value");
     }
 
     @Override

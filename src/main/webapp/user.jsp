@@ -46,15 +46,16 @@
             <input type="text" name="registrationDate" value="<c:out value="${user.registrationDate}"/>"
                    placeholder="Registration date"/>
         </div>
+        <div><input type="radio" name="gender" value="MAN"> MAN</input>
+            <input type="radio" name="gender" value="WOMAN"> WOMAN</input></div>
         <div>
-            <%--@declare id="idGender"--%><label for="idGender">idGender</label>
-            <input type="text" name="idGender" value="<c:out value="${user.gender}"/>" placeholder="Gender"/>
-        </div>
-        <div>
-            <%--@declare id="idRole"--%><label for="idRole">idRole</label>
-            <input type="text" name="idRole" value="<c:out value="${user.role}"/>" placeholder="Role"/>
-        </div>
-        <div>
+            <div>
+                <select id='check' name='role'>
+                    <option value='CLIENT'>CLIENT</option>
+                    <option value='PAYMASTER'>PAYMASTER</option>
+                    <option value='ADMIN'>ADMIN</option>
+                </select>
+            </div>
             <input type="submit" value="Submit">
         </div>
     </fieldset>

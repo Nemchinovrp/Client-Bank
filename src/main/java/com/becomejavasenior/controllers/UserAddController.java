@@ -52,8 +52,8 @@ public class UserAddController extends HttpServlet {
             e.printStackTrace();
         }
         user.setRegistrationDate(rd);
-        user.setGender(Gender.fromString(request.getParameter("idGender")));
-        user.setRole(Role.fromString(request.getParameter("idRole")));
+        user.setGender(Gender.fromString(request.getParameter("gender")));
+        user.setRole(Role.fromString(request.getParameter("role")));
         dao.createUser(user);
         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
         request.setAttribute("users", dao.getAllUser());
