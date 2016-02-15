@@ -18,20 +18,17 @@ public class AccountDAOImpl implements AccountDAO {
     private static final String QUERY_UPDATE = "UPDATE Account SET account = ?, id_currency = ?, balance = ?, user_id = ? WHERE id = ?";
     private static final String QUERY_DELETE = "DELETE FROM Account WHERE id = ?";
     Connection connection;
+    ConnectionProvider cp = null;
 
     public AccountDAOImpl() {
-        ConnectionProvider cp = new ConnectionProvider();
-        try {
-            connection = cp.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        cp = new ConnectionProvider();
     }
 
     @Override
     public Account createAccount(Account account) {
         PreparedStatement ps = null;
         try {
+            connection = cp.getConnection();
             ps = this.connection.prepareStatement(QUERY_INSERT);
             ps.setInt(1, account.getId());
             ps.setString(2, account.getAccountType());
@@ -53,6 +50,7 @@ public class AccountDAOImpl implements AccountDAO {
         Statement st = null;
         ResultSet rs = null;
         try {
+            connection = cp.getConnection();
             st = connection.createStatement();
             rs = st.executeQuery(QUERY_SELECT_ALL);
             Account account = null;
@@ -80,6 +78,7 @@ public class AccountDAOImpl implements AccountDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_SELECT_ID);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -103,6 +102,7 @@ public class AccountDAOImpl implements AccountDAO {
     public boolean updateAccount(Account account) {
         PreparedStatement ps = null;
         try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_UPDATE);
             ps.setString(1, account.getAccountType());
             ps.setInt(2, account.getIdCurrency());
@@ -123,6 +123,7 @@ public class AccountDAOImpl implements AccountDAO {
     public void deleteAccount(int id) {
         PreparedStatement ps = null;
         try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_DELETE);
             ps.setInt(1, id);
             ps.executeUpdate();

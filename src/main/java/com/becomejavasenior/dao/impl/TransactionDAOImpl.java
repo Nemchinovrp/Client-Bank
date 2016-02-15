@@ -18,20 +18,17 @@ public class TransactionDAOImpl implements TransactionDAO {
     private static final String QUERY_UPDATE = "UPDATE Transaction SET id_account = ?, operation = ?, amount = ? WHERE id = ?";
     private static final String QUERY_DELETE = "DELETE FROM Transaction WHERE id = ?";
     Connection connection;
+    ConnectionProvider cp = null;
 
     public TransactionDAOImpl() {
-        ConnectionProvider cp = new ConnectionProvider();
-        try {
-            connection = cp.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        cp = new ConnectionProvider();
     }
 
     @Override
-    public Transaction createTransaction(Transaction transaction){
+    public Transaction createTransaction(Transaction transaction) {
         PreparedStatement ps = null;
         try {
+            connection = cp.getConnection();
             ps = this.connection.prepareStatement(QUERY_INSERT);
             ps.setInt(1, transaction.getId());
             ps.setInt(2, transaction.getIdAccount());
@@ -47,11 +44,12 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public List<Transaction> getAllTransaction()  {
+    public List<Transaction> getAllTransaction() {
         List<Transaction> transactionList = new ArrayList<Transaction>();
         Statement st = null;
         ResultSet rs = null;
         try {
+            connection = cp.getConnection();
             st = connection.createStatement();
             rs = st.executeQuery(QUERY_SELECT_ALL);
             Transaction transaction = null;
@@ -73,11 +71,12 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public Transaction getTransactionById(int id)  {
+    public Transaction getTransactionById(int id) {
         Transaction transaction = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_SELECT_ID);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -97,9 +96,10 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
-    public boolean updateTransaction(Transaction transaction)  {
+    public boolean updateTransaction(Transaction transaction) {
         PreparedStatement ps = null;
-        try{
+        try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_UPDATE);
             ps.setInt(1, transaction.getIdAccount());
             ps.setString(2, transaction.getOperation());
@@ -107,27 +107,26 @@ public class TransactionDAOImpl implements TransactionDAO {
             ps.setInt(4, transaction.getId());
             return ps.executeUpdate() == 1;
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             JDBCUtil.close(ps, connection);
         }
         return false;
     }
 
     @Override
-    public void deleteTransaction(int id)  {
+    public void deleteTransaction(int id) {
         PreparedStatement ps = null;
-        try{
+        try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_DELETE);
             ps.setInt(1, id);
             ps.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             JDBCUtil.close(ps, connection);
         }
     }

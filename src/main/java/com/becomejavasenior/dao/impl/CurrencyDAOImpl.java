@@ -3,6 +3,7 @@ package com.becomejavasenior.dao.impl;
 import com.becomejavasenior.dao.ConnectionProvider;
 import com.becomejavasenior.dao.CurrencyDAO;
 import com.becomejavasenior.model.Currency;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,20 +18,17 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     private static final String QUERY_UPDATE = "UPDATE Currency SET name = ?, rate = ? WHERE id = ?";
     private static final String QUERY_DELETE = "DELETE FROM Currency WHERE id = ?";
     Connection connection;
+    ConnectionProvider cp = null;
 
     public CurrencyDAOImpl() {
-        ConnectionProvider cp = new ConnectionProvider();
-        try {
-            connection = cp.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        cp = new ConnectionProvider();
     }
 
     @Override
-      public Currency createCurrency(Currency currency) {
+    public Currency createCurrency(Currency currency) {
         PreparedStatement ps = null;
         try {
+            connection = cp.getConnection();
             ps = this.connection.prepareStatement(QUERY_INSERT);
             ps.setInt(1, currency.getId());
             ps.setString(2, currency.getName());
@@ -45,11 +43,12 @@ public class CurrencyDAOImpl implements CurrencyDAO {
     }
 
     @Override
-    public List<Currency> getAllCurrency()  {
+    public List<Currency> getAllCurrency() {
         List<Currency> currencies = new ArrayList<Currency>();
         Statement st = null;
         ResultSet rs = null;
         try {
+            connection = cp.getConnection();
             st = connection.createStatement();
             rs = st.executeQuery(QUERY_SELECT_ALL);
             Currency currency = null;
@@ -75,6 +74,7 @@ public class CurrencyDAOImpl implements CurrencyDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_SELECT_ID);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -87,41 +87,41 @@ public class CurrencyDAOImpl implements CurrencyDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
-           JDBCUtil.close(rs, ps, connection);
+            JDBCUtil.close(rs, ps, connection);
         }
         return currency;
     }
 
     @Override
-    public boolean updateCurrency(Currency currency)  {
+    public boolean updateCurrency(Currency currency) {
         PreparedStatement ps = null;
-        try{
+        try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_UPDATE);
             ps.setString(1, currency.getName());
             ps.setDouble(2, currency.getRate());
             ps.setInt(3, currency.getId());
             return ps.executeUpdate() == 1;
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             JDBCUtil.close(ps, connection);
         }
         return false;
     }
 
     @Override
-    public void deleteCurrency(int id)  {
+    public void deleteCurrency(int id) {
         PreparedStatement ps = null;
-        try{
+        try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_DELETE);
             ps.setInt(1, id);
             ps.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             JDBCUtil.close(ps, connection);
         }
 

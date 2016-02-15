@@ -21,21 +21,18 @@ public class UserDAOImpl implements UserDAO {
     private static final String QUERY_UPDATE = "UPDATE User SET first_name = ?, last_name = ?, email = ?, password = ?, dateOfBirth = ?, registrationdate = ?, id_gender = ?, id_role = ? WHERE id = ?";
     private static final String QUERY_DELETE = "DELETE FROM User WHERE id = ?";
     Connection connection;
+    ConnectionProvider cp = null;
 
     public UserDAOImpl() {
-        ConnectionProvider cp = new ConnectionProvider();
-        try {
-            connection = cp.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        cp = new ConnectionProvider();
     }
 
     @Override
     public User createUser(User user) {
+
         PreparedStatement ps = null;
         try {
+            connection = cp.getConnection();
             ps = this.connection.prepareStatement(QUERY_INSERT);
             ps.setInt(1, user.getId());
             ps.setString(2, user.getFirstName());
@@ -61,6 +58,7 @@ public class UserDAOImpl implements UserDAO {
         Statement st = null;
         ResultSet rs = null;
         try {
+            connection = cp.getConnection();
             st = connection.createStatement();
             rs = st.executeQuery(QUERY_SELECT_ALL);
             User user = null;
@@ -92,6 +90,7 @@ public class UserDAOImpl implements UserDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_SELECT_ID);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -119,6 +118,7 @@ public class UserDAOImpl implements UserDAO {
     public void updateUser(User user) {
         PreparedStatement ps = null;
         try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_UPDATE);
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getLastName());
@@ -142,6 +142,7 @@ public class UserDAOImpl implements UserDAO {
     public void deleteUser(int id) {
         PreparedStatement ps = null;
         try {
+            connection = cp.getConnection();
             ps = connection.prepareStatement(QUERY_DELETE);
             ps.setInt(1, id);
             ps.executeUpdate();
