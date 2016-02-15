@@ -25,9 +25,17 @@
             <input type="text" name="accountType" value="<c:out value="${account.accountType}"/>"
                    placeholder="accountType"/>
         </div>
-        <div>
-            <%--@declare id="idCurrency"--%><label for="idCurrency">Currency</label>
+   <%--     <div>
+            &lt;%&ndash;@declare id="idCurrency"&ndash;%&gt;<label for="idCurrency">Currency</label>
             <input type="text" name="idCurrency" value="<c:out value="${account.idCurrency}"/>" placeholder="currency"/>
+        </div>--%>
+        <div>
+            <label>Currency</label>
+            <select id='check' name='idCurrency'>
+                <option value='1'>EUR</option>
+                <option value='2'>USD</option>
+                <option value='3'>RUB</option>
+            </select>
         </div>
         <div>
             <%--@declare id="balance"--%><label for="balance">Balance</label>
