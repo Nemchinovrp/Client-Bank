@@ -13,10 +13,10 @@ import java.io.IOException;
 /**
  * Created by Roman on 10.02.2016.
  */
-@WebServlet("/AdminAccountDeleteController")
+@WebServlet("/AdminAccountDeleteController.do")
 public class AccountDeleteController extends HttpServlet {
     AccountDAO dao;
-    AccountDeleteController(){
+   public AccountDeleteController(){
         dao = new AccountDAOImpl();
     }
 
@@ -28,7 +28,7 @@ public class AccountDeleteController extends HttpServlet {
 
             int id = Integer.parseInt(request.getParameter("id"));
             dao.deleteAccount(id);
-            response.sendRedirect("/AdminAccountListController?action=listUser");
+            response.sendRedirect("/AdminAccountListController?action=listAccount");
         }
     }
 }

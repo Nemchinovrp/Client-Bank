@@ -13,11 +13,11 @@ import java.io.IOException;
 /**
  * Created by Roman on 12.02.2016.
  */
-@WebServlet("/PaymasterTransactionDeleteController")
+@WebServlet("/PaymasterTransactionDeleteController.do")
 public class TransactionDeleteController extends HttpServlet {
       TransactionDAO dao;
 
-    TransactionDeleteController() {
+   public TransactionDeleteController() {
         dao = new TransactionDAOImpl();
     }
 

@@ -32,7 +32,7 @@
             <td>${account.idCurrency}</td>
             <td>${account.balance}</td>
             <td>${account.usersId}</td>
-            <td><a href="AdminAccountDeleteController?action=delete&id=<c:out value="${account.id}"/>">Delete</a></td>
+            <td><a href="AdminAccountDeleteController.do?action=delete&id=<c:out value="${account.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
