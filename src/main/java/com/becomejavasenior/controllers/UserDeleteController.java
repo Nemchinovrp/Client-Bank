@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by Роман on 07.02.2016.
  */
-@WebServlet("/UserDeleteController.do")
+@WebServlet("/AdminUserDeleteController.do")
 public class UserDeleteController extends HttpServlet {
 
     private UserDAO dao;
@@ -30,7 +30,7 @@ public class UserDeleteController extends HttpServlet {
 
             int id = Integer.parseInt(request.getParameter("id"));
             dao.deleteUser(id);
-            response.sendRedirect("/UserListController?action=listUser");
+            response.sendRedirect("/AdminUserListController?action=listUser");
 
         }
     }

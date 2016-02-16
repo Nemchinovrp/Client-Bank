@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by Roman on 12.02.2016.
  */
-@WebServlet("/TransactionDeleteController")
+@WebServlet("/PaymasterTransactionDeleteController")
 public class TransactionDeleteController extends HttpServlet {
       TransactionDAO dao;
 
@@ -29,7 +29,7 @@ public class TransactionDeleteController extends HttpServlet {
 
             int id = Integer.parseInt(request.getParameter("id"));
             dao.deleteTransaction(id);
-            response.sendRedirect("/TransactionListController?action=listTransaction");
+            response.sendRedirect("/ClientTransactionListController?action=listTransaction");
         }
     }
 }

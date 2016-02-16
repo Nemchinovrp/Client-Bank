@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * Created by Roman on 10.02.2016.
  */
-@WebServlet("/AccountListController")
+@WebServlet("/AdminAccountListController")
 public class AccountListController extends HttpServlet {
     public static final String LIST_ACCOUNT = "/admin/listAccount.jsp";
     public static final String INSERT_OR_EDIT = "/admin/account.jsp";

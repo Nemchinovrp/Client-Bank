@@ -13,7 +13,7 @@
   <title>Add Transaction</title>
 </head>
 <body>
-<form action="TransactionAddController.do" method="post">
+<form action="PaymasterTransactionAddController.do" method="post">
 
   <fieldset>
     <div>

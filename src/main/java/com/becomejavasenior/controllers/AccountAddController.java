@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * Created by Roman on 10.02.2016.
  */
-@WebServlet("/AccountAddController")
+@WebServlet("/AdminAccountAddController")
 public class AccountAddController extends HttpServlet {
     public static final String LIST_ACCOUNT = "/admin/listAccount.jsp";
     static final Logger logger = LogManager.getRootLogger();

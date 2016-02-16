@@ -13,7 +13,7 @@
     <title>Add Account</title>
 </head>
 <body>
-<form action="AccountAddController" method="post">
+<form action="AdminAccountAddController" method="post">
 
     <fieldset>
         <div>

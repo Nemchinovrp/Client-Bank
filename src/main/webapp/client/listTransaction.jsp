@@ -29,12 +29,12 @@
       <td>${transaction.idAccount}</td>
       <td>${transaction.operation}</td>
       <td>${transaction.amount}</td>
-      <td><a href="TransactionDeleteController?action=delete&id=<c:out value="${transaction.id}"/>">Delete</a></td>
+      <td><a href="PaymasterTransactionDeleteController?action=delete&id=<c:out value="${transaction.id}"/>">Delete</a></td>
     </tr>
   </c:forEach>
 </table>
 <p>
-  <a href="TransactionListController.do?action=insert">Add Transaction</a>
+  <a href="ClientTransactionListController.do?action=insert">Add Transaction</a>
 </p>
 
 </body>

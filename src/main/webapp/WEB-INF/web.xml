@@ -14,14 +14,13 @@
         <res-auth>Container</res-auth>
     </resource-ref>
 
-
     <servlet>
         <servlet-name>UserListController</servlet-name>
         <servlet-class>com.becomejavasenior.controllers.UserListController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserListController</servlet-name>
-        <url-pattern>/UserListController.do</url-pattern>
+        <url-pattern>/AdminUserListController.do</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -30,11 +29,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>TransactionListController</servlet-name>
-        <url-pattern>/TransactionListController.do</url-pattern>
+        <url-pattern>/ClientTransactionListController.do</url-pattern>
     </servlet-mapping>
-
-
-
-
 
 </web-app>

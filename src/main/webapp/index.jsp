@@ -7,14 +7,14 @@
 </head>
 <body>
 <br>
-<a href="/UserListController?action=listUser">Registration user</a>
+<a href="/AdminUserListController?action=listUser">Registration user</a>
 <br>
 <br>
-<a href="/AccountListController?action=listAccount">Account</a>
+<a href="/AdminAccountListController?action=listAccount">Account</a>
 <br>
 
 <br>
-<a href="/TransactionListController?action=listTransaction">Transaction</a>
+<a href="/ClientTransactionListController?action=listTransaction">Transaction</a>
 <br>
 
 </body>

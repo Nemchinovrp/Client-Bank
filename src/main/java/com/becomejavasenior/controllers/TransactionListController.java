@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * Created by Roman on 11.02.2016.
  */
-@WebServlet("/TransactionListController")
+@WebServlet("/ClientTransactionListController")
 public class TransactionListController extends HttpServlet {
     public static final String LIST_TRANSACTION = "/client/listTransaction.jsp";
     public static final String INSERT_OR_EDIT = "/paymaster/transaction.jsp";

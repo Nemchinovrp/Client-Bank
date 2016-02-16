@@ -20,7 +20,7 @@ import java.util.Date;
 /**
  * Created by Роман on 07.02.2016.
  */
-@WebServlet("/UserAddController.do")
+@WebServlet("/ClientUserAddController.do")
 public class UserAddController extends HttpServlet {
     public static final String LIST_USER = "/admin/listUser.jsp";
 
