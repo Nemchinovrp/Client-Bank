@@ -16,7 +16,7 @@
 <body>
 <div class="container" style="padding:150px 0">
     <div class="row">
-        <div class="col-md-offset-5 col-md-3">
+        <div class="col-md-offset-5 col-md-10">
             <form  action="AdminAccountAddController" method="post">
                 <fieldset>
                     <div class="form-group">

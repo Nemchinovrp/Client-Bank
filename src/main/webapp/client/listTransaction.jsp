@@ -10,11 +10,12 @@
 <html>
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html" ; charset="UTF-8">
+  <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
   <title>Transaction</title>
 </head>
 <body>
-<table>
-  <thead>
+<table class="table table-bordered table-hover">
+  <thead class="thead-inverse">
   <tr>
     <th>Id</th>
     <th>Account</th>
@@ -29,14 +30,15 @@
       <td>${transaction.idAccount}</td>
       <td>${transaction.operation}</td>
       <td>${transaction.amount}</td>
-      <td><a href="PaymasterTransactionDeleteController?action=delete&id=<c:out value="${transaction.id}"/>">Delete</a></td>
+      <td><a href="PaymasterTransactionDeleteController?action=delete&id=<c:out value="${transaction.id}"/>">Delete</thead></td>
     </tr>
   </c:forEach>
 </table>
 <p>
   <a href="ClientTransactionListController.do?action=insert">Add Transaction</a>
 </p>
-
+<script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>
 
