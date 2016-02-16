@@ -18,8 +18,8 @@ import java.io.IOException;
  */
 @WebServlet("/AccountListController")
 public class AccountListController extends HttpServlet {
-    public static final String LIST_ACCOUNT = "/listAccount.jsp";
-    public static final String INSERT_OR_EDIT = "/account.jsp";
+    public static final String LIST_ACCOUNT = "/admin/listAccount.jsp";
+    public static final String INSERT_OR_EDIT = "/admin/account.jsp";
     static final Logger logger = LogManager.getRootLogger();
     private AccountDAO dao;
 

@@ -19,7 +19,7 @@ import java.io.IOException;
  */
 @WebServlet("/AccountAddController")
 public class AccountAddController extends HttpServlet {
-    public static final String LIST_ACCOUNT = "/listAccount.jsp";
+    public static final String LIST_ACCOUNT = "/admin/listAccount.jsp";
     static final Logger logger = LogManager.getRootLogger();
     private AccountDAO dao;
 
@@ -35,11 +35,6 @@ public class AccountAddController extends HttpServlet {
                 Integer.parseInt(request.getParameter("idCurrency")),
                 Double.parseDouble(request.getParameter("balance")),
                 Integer.parseInt(request.getParameter("usersId")));
-       /* account.setId(Integer.parseInt(request.getParameter("id")));
-        account.setAccountType(request.getParameter("accountType"));
-        account.setIdCurrency(Integer.parseInt(request.getParameter("idCurrency")));
-        account.setBalance(Double.parseDouble(request.getParameter("balance")));
-        account.setUsersId(Integer.parseInt(request.getParameter("usersId")));*/
         dao.createAccount(account);
         logger.info("end add object account");
         RequestDispatcher view = request.getRequestDispatcher(LIST_ACCOUNT);

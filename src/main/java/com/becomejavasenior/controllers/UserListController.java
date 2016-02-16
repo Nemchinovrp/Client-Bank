@@ -24,8 +24,8 @@ import java.util.Date;
  */
 @WebServlet("/UserListController")
 public class UserListController extends HttpServlet {
-    public static final String LIST_USER = "/listUser.jsp";
-    public static final String INSERT_OR_EDIT = "/user.jsp";
+    public static final String LIST_USER = "/admin/listUser.jsp";
+    public static final String INSERT_OR_EDIT = "/client/user.jsp";
     static final Logger logger = LogManager.getRootLogger();
     private UserDAO dao;
 

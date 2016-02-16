@@ -21,14 +21,12 @@
             <input type="text" name="id" value="<c:out value="${account.id}"/>" placeholder="ID"/>
         </div>
         <div>
-            <%--@declare id="accountType"--%><label for="accountType">Account Type</label>
-            <input type="text" name="accountType" value="<c:out value="${account.accountType}"/>"
-                   placeholder="accountType"/>
+            <label>Account</label>
+            <select id='checkAccount' name='accountType'>
+                <option value='Credit'>CREDIT</option>
+                <option value='Debit'>DEBIT</option>
+            </select>
         </div>
-   <%--     <div>
-            &lt;%&ndash;@declare id="idCurrency"&ndash;%&gt;<label for="idCurrency">Currency</label>
-            <input type="text" name="idCurrency" value="<c:out value="${account.idCurrency}"/>" placeholder="currency"/>
-        </div>--%>
         <div>
             <label>Currency</label>
             <select id='check' name='idCurrency'>

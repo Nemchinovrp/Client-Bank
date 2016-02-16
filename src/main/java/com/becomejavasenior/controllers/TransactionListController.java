@@ -18,8 +18,8 @@ import java.io.IOException;
  */
 @WebServlet("/TransactionListController")
 public class TransactionListController extends HttpServlet {
-    public static final String LIST_TRANSACTION = "/listTransaction.jsp";
-    public static final String INSERT_OR_EDIT = "/transaction.jsp";
+    public static final String LIST_TRANSACTION = "/client/listTransaction.jsp";
+    public static final String INSERT_OR_EDIT = "/paymaster/transaction.jsp";
     static final Logger logger = LogManager.getRootLogger();
     private TransactionDAO dao;
 

@@ -22,7 +22,7 @@ import java.util.Date;
  */
 @WebServlet("/UserAddController.do")
 public class UserAddController extends HttpServlet {
-    public static final String LIST_USER = "/listUser.jsp";
+    public static final String LIST_USER = "/admin/listUser.jsp";
 
     private UserDAO dao;
 
