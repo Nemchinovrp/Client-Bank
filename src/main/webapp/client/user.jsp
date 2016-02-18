@@ -10,7 +10,9 @@
 <html>
 <head>
     <meta http-equiv="CONTENT-TYPE" content="text/html" ; charset="UTF-8">
-    <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <style>
+        <%@include file="/WEB-INF/css/bootstrap.css"%>
+    </style>
     <title>Add New User</title>
 </head>
 <body>
@@ -25,11 +27,13 @@
                     </div>
                     <div class="form-group">
                         <%--@declare id="firstName"--%><label for="firstName">First Name</label>
-                        <input type="text" name="firstName" value="<c:out value="${user.firstName}"/>" placeholder="First Name"/>
+                        <input type="text" name="firstName" value="<c:out value="${user.firstName}"/>"
+                               placeholder="First Name"/>
                     </div>
                     <div class="form-group">
                         <%--@declare id="lastName"--%><label for="lastName">Last Name</label>
-                        <input type="text" name="lastName" value="<c:out value="${user.lastName}"/>" placeholder="Last Name"/>
+                        <input type="text" name="lastName" value="<c:out value="${user.lastName}"/>"
+                               placeholder="Last Name"/>
                     </div>
                     <div class="form-group">
                         <%--@declare id="email"--%><label for="email">Email</label>
@@ -37,7 +41,8 @@
                     </div>
                     <div class="form-group">
                         <%--@declare id="password"--%><label for="password">Password</label>
-                        <input type="text" name="password" value="<c:out value="${user.password}"/>" placeholder="Password"/>
+                        <input type="text" name="password" value="<c:out value="${user.password}"/>"
+                               placeholder="Password"/>
                     </div>
                     <div class="form-group">
                         <%--@declare id="dateOfBirth"--%><label for="dateOfBirth">Date of birth</label>
@@ -60,16 +65,12 @@
                                 <option value='ADMIN'>ADMIN</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn-success" >Add User</button>
+                        <button type="submit" class="btn-success">Add User</button>
                     </div>
                 </fieldset>
             </form>
-            </div>
         </div>
     </div>
-
-
-<script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
+</div>
 </body>
 </html>
