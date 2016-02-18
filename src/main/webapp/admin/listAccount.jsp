@@ -6,7 +6,7 @@
     <style>
         <%@include file="/WEB-INF/css/bootstrap.css"%>
     </style>
-    <title>Account</title>
+    <title>User</title>
 </head>
 <body>
 <table class="table table-bordered table-hover">

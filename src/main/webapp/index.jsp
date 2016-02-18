@@ -3,23 +3,21 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <style>
+        <%@include file="/WEB-INF/css/bootstrap.css"%>
+    </style>
     <title>Client-Bank</title>
 </head>
 <body>
 <br>
-<a href="/AdminUserListController?action=listUser">Registration user</a>
+<a class="text-primary" href="/AdminUserListController?action=listUser">Registration user</a>
 <br>
 <br>
-<a href="/AdminAccountListController?action=listAccount">Account</a>
-<br>
-
-<br>
-<a href="/ClientTransactionListController?action=listTransaction">Transaction</a>
+<a class="text-primary" href="/AdminAccountListController?action=listAccount">Account</a>
 <br>
 
-
-<script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
+<br>
+<a class="text-primary" href="/ClientTransactionListController?action=listTransaction">Transaction</a>
+<br>
 </body>
 </html>

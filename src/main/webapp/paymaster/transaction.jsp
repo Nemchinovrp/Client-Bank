@@ -6,7 +6,7 @@
     <style>
         <%@include file="/WEB-INF/css/bootstrap.css"%>
     </style>
-    <title>Add Transaction</title>
+    <title>Transaction</title>
 </head>
 <body>
 <div class="container" style="padding:150px 0">
