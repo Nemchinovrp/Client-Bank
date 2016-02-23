@@ -24,7 +24,7 @@
                     <div class="pwstrength_viewport_progress"></div>
                     <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
                     <div>
-                        <a href="ClientUserAddController.do">Registration</a>
+                        <a href="AdminUserListController?action=insert">Registration</a>
                     </div>
                 </form>
             </section>

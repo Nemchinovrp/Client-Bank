@@ -8,10 +8,12 @@ import com.becomejavasenior.dao.impl.TransactionDAOImpl;
 import com.becomejavasenior.dao.impl.UserDAOImpl;
 import com.becomejavasenior.model.User;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,8 +22,6 @@ import java.util.List;
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-    public static final String LIST_USER = "/admin/listUser.jsp";
-    public static final String LIST_TRANSACTION = "/client/listTransaction.jsp";
     UserDAO daoUser = null;
     TransactionDAO daoTransaction = null;
     AccountDAO daoAccount = null;
@@ -38,37 +38,22 @@ public class LoginServlet extends HttpServlet {
         String emailR = request.getParameter("email");
         String passwordR = request.getParameter("password");
         for (User u : list) {
-            if (u.getEmail().equals(emailR) && u.getPassword().equals(passwordR) && u.getRole().toString().equals("CLIENT")) {
+            if (u.getEmail().equals(emailR) && u.getPassword().equals(passwordR)) {
                 HttpSession session = request.getSession();
-                session.setAttribute("user", u.getFirstName());
+                session.setAttribute("email", u.getEmail());
+                session.setAttribute("password", u.getPassword());
+                session.setAttribute("role", u.getRole().toString());
                 session.setMaxInactiveInterval(30 * 60);
-                Cookie userName = new Cookie("user", u.getFirstName());
-                userName.setMaxAge(30 * 60);
-                response.addCookie(userName);
-                RequestDispatcher view = request.getRequestDispatcher(LIST_TRANSACTION);
-                request.setAttribute("transactions", daoTransaction.getAllTransaction());
-                view.forward(request, response);
-            } else if (u.getEmail().equals(emailR) && u.getPassword().equals(passwordR) && u.getRole().toString().equals("ADMIN")) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user", u.getFirstName());
-                session.setMaxInactiveInterval(30 * 60);
-                Cookie userName = new Cookie("user", u.getFirstName());
-                userName.setMaxAge(30 * 60);
-                response.addCookie(userName);
-                RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
-                request.setAttribute("users", daoUser.getAllUser());
-                view.forward(request, response);
-            } else if (u.getEmail().equals(emailR) && u.getPassword().equals(passwordR) && u.getRole().toString().equals("PAYMASTER")) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user", u.getFirstName());
-                session.setMaxInactiveInterval(30 * 60);
-                Cookie userName = new Cookie("user", u.getFirstName());
-                userName.setMaxAge(30 * 60);
-                response.addCookie(userName);
-                RequestDispatcher view = request.getRequestDispatcher(LIST_TRANSACTION);
-                request.setAttribute("transactions", daoTransaction.getAllTransaction());
-                view.forward(request, response);
+                if (u.getRole().toString().equals("ADMIN")) {
+                    response.sendRedirect("/AdminUserListController.do?action=listUser");
+                } else if (u.getRole().toString().equals("CLIENT")) {
+                    response.sendRedirect("/ClientTransactionListController?action=listTransaction");
+                } else if (u.getRole().toString().equals("PAYMASTER")) {
+                    response.sendRedirect("/PaymasterAccountListController?action=listAccount");
+                }
+
             }
         }
+
     }
 }

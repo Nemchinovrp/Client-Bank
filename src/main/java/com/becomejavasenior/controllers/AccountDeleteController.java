@@ -28,7 +28,7 @@ public class AccountDeleteController extends HttpServlet {
 
             int id = Integer.parseInt(request.getParameter("id"));
             dao.deleteAccount(id);
-            response.sendRedirect("/AdminAccountListController?action=listAccount");
+            response.sendRedirect("/PaymasterAccountListController?action=listAccount");
         }
     }
 }

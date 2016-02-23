@@ -11,7 +11,9 @@ public enum Role {
 
     CLIENT("CLIENT"),
 
-    PAYMASTER("PAYMASTER");
+    PAYMASTER("PAYMASTER"),
+
+    DEFAULT("DEFAULT");
 
     static final Logger logger = LogManager.getRootLogger();
     private String role;
@@ -31,7 +33,7 @@ public enum Role {
                 logger.info("Перебираем значения");
             }
         }
-          return CLIENT;
+          return DEFAULT;
     }
 
     @Override

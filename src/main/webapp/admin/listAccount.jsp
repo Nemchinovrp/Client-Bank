@@ -32,7 +32,7 @@
     </c:forEach>
 </table>
 <p>
-    <a href="AdminAccountListController?action=insert">Add Account</a>
+    <a href="PaymasterAccountListController?action=insert">Add Account</a>
 </p>
 </body>
 </html>
