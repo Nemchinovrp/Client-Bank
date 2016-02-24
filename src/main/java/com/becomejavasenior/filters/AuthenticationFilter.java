@@ -27,11 +27,11 @@ public class AuthenticationFilter implements Filter {
         }
         if (session != null && session.getAttribute("role") != null) {
            /* Role role = Role.fromString((String) session.getAttribute("role"));*/
-            if (uri.startsWith("/Admin")) {
+            if (uri.startsWith("/Admin")&&("ADMIN").equals(session.getAttribute("role"))) {
                 filterChain.doFilter(servletRequest, servletResponse);
-            } else if (uri.startsWith("/Client")) {
+            } else if (uri.startsWith("/Client")&&("CLIENT").equals(session.getAttribute("role"))) {
                 filterChain.doFilter(servletRequest, servletResponse);
-            } else if (uri.startsWith("/Paymaster")) {
+            } else if (uri.startsWith("/Paymaster")&&("PAYMASTER").equals(session.getAttribute("role"))) {
                 filterChain.doFilter(servletRequest, servletResponse);
             }
         } else {

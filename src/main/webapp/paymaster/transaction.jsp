@@ -14,21 +14,21 @@
         <div class="col-md-offset-5 col-md-10">
             <form action="PaymasterTransactionAddController.do" method="post">
                 <fieldset>
-                    <div>
+                    <div class="form-group">
                         <%--@declare id="id"--%><label for="id">Id</label>
                         <input type="text" name="id" value="<c:out value="${transaction.id}"/>" placeholder="ID"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <%--@declare id="idAccount"--%><label for="idAccount">Account</label>
                         <input type="text" name="idAccount" value="<c:out value="${transaction.idAccount}"/>"
                                placeholder="idAccount"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <%--@declare id="operation"--%><label for="operation">Operation</label>
                         <input type="text" name="operation" value="<c:out value="${transaction.operation}"/>"
                                placeholder="operation"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <%--@declare id="amount"--%><label for="amount">Amount</label>
                         <input type="text" name="amount" value="<c:out value="${transaction.amount}"/>"
                                placeholder="amount"/>
